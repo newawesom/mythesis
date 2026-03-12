@@ -759,7 +759,7 @@
 }{\vfill\sWuhao\noindent\nwpu@eng@funding\par\cleardoublepage}
 \newenvironment{engkeywords}{                               %
     \vspace{1\baselineskip} \par                            %
-    \noindent \textbf{Key Words:}}{}                        %
+    \noindent \textbf{Key words:}}{}                        %
 %%=============================================================================%
 %%=============================================================================%
 %% 目录页
