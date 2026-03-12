@@ -489,6 +489,9 @@
 \newcommand{\nwpu@eng@funding}{\chs@space}                  % 基金赞助（英文）
 %%-----------------------------------------------------------------------------%
 \newcommand{\nwpu@uid}{2000123456}                          % default 学号
+\newcommand{\nwpu@schoolcode}{10699}                        % default 学校代码
+\newcommand{\nwpu@classnumber}{O242}                        % default 分类号
+\newcommand{\nwpu@securitylevel}{公开}                      % default 密级
 \newcommand{\nwpu@funding}{\chs@space}                      % 基金资助
 %%-----------------------------------------------------------------------------%
 \renewcommand{\title}[2]{                                   % 设置题目
@@ -522,8 +525,11 @@
 \newcommand{\funding}[2]{                                   % 设置基金资助
     \renewcommand{\nwpu@chs@funding}{#1}                    %
     \renewcommand{\nwpu@eng@funding}{#2}                    %
-}                                                           %  
+}                                                           %
 \newcommand{\studentnumber}[1]{\renewcommand{\nwpu@uid}{#1}}% 设置学号
+\newcommand{\schoolcode}[1]{\renewcommand{\nwpu@schoolcode}{#1}}% 设置学校代码
+\newcommand{\classnumber}[1]{\renewcommand{\nwpu@classnumber}{#1}}% 设置分类号
+\newcommand{\securitylevel}[1]{\renewcommand{\nwpu@securitylevel}{#1}}% 设置密级
 %%=============================================================================%
 %%=============================================================================%
 %% 封皮页
@@ -543,9 +549,9 @@
                 \vspace{.5cm}                               %
                 \renewcommand\arraystretch{1.2}             %
                 \begin{tabular}{|c|c|}\hline                %
-                    {学 \hfill 校 \hfill 代 \hfill 码} & 10699     \\ \hline
-                    {分   \hfill    类    \hfill   号} & O242      \\ \hline
-                    {密           \hfill           级} & 公开      \\ \hline
+                    {学 \hfill 校 \hfill 代 \hfill 码} & \nwpu@schoolcode     \\ \hline
+                    {分   \hfill    类    \hfill   号} & \nwpu@classnumber      \\ \hline
+                    {密           \hfill           级} & \nwpu@securitylevel      \\ \hline
                     {学           \hfill           号} & \nwpu@uid \\ \hline
                 \end{tabular}                               %
             \end{minipage} \par                             % 排版结束
