@@ -106,10 +106,9 @@
 \chapter{绪论}
 \chaptermark{绪论}
 \section{这是中标题}
-emmmm
 \subsection{这是小标题}
-emmmmm
 \subsubsection{这是小小标题}
+测试引用1\cite{NWPUThesisLaTeXTemplate}，引用2\cite{chen2014maiyuan,knuth1986the}，引用3\cite{MathSymbolsinLaTeXbypolossk,shen2021peridynamic,chen2018autonomous}。
 
 \cleardoublepage
 
@@ -141,7 +140,7 @@ emmmmm
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[scale=0.2]{figures/poster.png}
+    \includegraphics[scale=0.5]{figures/example.png}
     \caption{
         这里是个普通的标题
     }
@@ -154,12 +153,12 @@ emmmmm
         \centering
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
-            \includegraphics[scale=0.1]{figures/poster.png}
+            \includegraphics[scale=0.5]{figures/example.png}
             \caption{\label{subfig:example2-subfig1}}
         \end{subfigure}
         \begin{subfigure}[t]{0.47\textwidth}
             \centering
-            \includegraphics[scale=0.1]{figures/poster.png}
+            \includegraphics[scale=0.5]{figures/example.png}
             \caption{\label{subfig:example2-subfig2}}
         \end{subfigure}
     \end{minipage}
@@ -175,8 +174,8 @@ emmmmm
 %%=============================================================================%
 %% 参考文献以及附录
 %%-----------------------------------------------------------------------------%
-\bibliographystyle{nputhesis-noslash}                       % 参考文献
-\bibliography{reference}                                    % 参考文献
+\bibliographystyle{nputhesis-noslash}                       % 参考文献                                                  % 引用所有文献
+\bibliography{ref/reference}                                    % 参考文献
 
 
 \appendix
@@ -206,6 +205,7 @@ emmmmm
     [1] ...
 \end{accomplishments}                                       % 参加科研情况结束
 %%-----------------------------------------------------------------------------%
+
 \makestatement                                              % 知识产权与原创性声明
 
 \end{document}

@@ -9,15 +9,31 @@
                 "-file-line-error",
                 "%DOC%"
             ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
         }
     ],
     "latex-workshop.latex.recipes": [
         {
-            "name": "xelatex",
+            "name": "xelatex + bibtex + xelatex x 2",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex (fast)",
             "tools": [
                 "xelatex"
             ]
         }
     ],
-    "latex-workshop.latex.recipe.default": "xelatex"
+    "latex-workshop.latex.recipe.default": "xelatex (fast)"
 }
