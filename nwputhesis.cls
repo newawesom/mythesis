@@ -47,6 +47,7 @@
 \ExecuteOptionsX{adobe=false}                               % 默认不用 Adobe 字体
 \ExecuteOptionsX{winfonts=false}                            % 默认不开启强制选项
 \ProcessOptionsX \relax                                     %
+\let\@unusedoptionlist\@empty                               % 清除未使用选项警告
 \LoadClass[11pt, a4paper, openany, twoside]{book}           % 默认双面印刷
 \RequirePackage{etoolbox}                                   % LaTeX 补丁工具
 \RequirePackage{amssymb}                                    % AMS 数学符号

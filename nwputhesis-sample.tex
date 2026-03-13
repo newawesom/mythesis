@@ -1,10 +1,3 @@
-%%
-%% This is file `nwputhesis-sample.tex',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% nwputhesis.dtx  (with options: `sample')
 %% Copyright (C) 2022 by Shangkun Shen
 %% 
 %% It may be distributed and/or modified under the conditions of the LaTeX
@@ -15,19 +8,10 @@
 %% 2005/12/01 or later.
 
 %%=============================================================================%
-%% 设置论文格式（学位、学位类型、盲评、字体）
+%% 设置论文格式（学位、学位类型、盲评）
 %%-----------------------------------------------------------------------------%
 %% 常用选项：degree=master|phd, academic=true|false, blindreview=true|false
- \documentclass[lang=chs, degree=master, blindreview=false, adobe=false, academic=true]{nwputhesis}
-
-
-%%=============================================================================%
-%% 导言区：请自行添加额外宏包
-%%-----------------------------------------------------------------------------%                                   % 生成无意义文本
-\usepackage{metalogo}                                       % 软件标志
-\usepackage[binary-units=true]{siunitx}                     % 物理量单位
-\usepackage{amsmath}                                        % 基础数学库
-
+\documentclass[degree=master, academic=true, blindreview=false]{nwputhesis}
 
 %%=============================================================================%
 %% 基本信息录入
@@ -175,13 +159,11 @@
 
 
 \appendix
-\chapter{一份说明 顺便测试英文标题 Title}
-
-强烈不推荐英文标题！仅供测试，擅自使用后果自负。
+\chapter{一份说明}
 
 \section{测试附录子标题}
 
-这是一份附录，请放置一些独立的证明、源代码、或其他辅助资料。
+这是一份附录。
 \begin{equation}
     S = \pi r^2
 \end{equation}
