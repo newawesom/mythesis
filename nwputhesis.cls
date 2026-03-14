@@ -85,9 +85,9 @@
 %% 解决 hyperref "Token not allowed in a PDF string" 警告
 %%-----------------------------------------------------------------------------
 \pdfstringdefDisableCommands{%
-    \def\!{}%
-    \def\quad{ }%
-    \def\qquad{  }%
+\def\!{}%
+\def\quad{ }%
+\def\qquad{  }%
 }
 %%-----------------------------------------------------------------------------%
 \RequirePackage{type1cm}                                    % 设置字号与行距
@@ -704,7 +704,8 @@
 %%-----------------------------------------------------------------------------%
 %% 生成标题页
 %%-----------------------------------------------------------------------------%
-\renewcommand{\maketitle}{                                  % 重制 maketitle
+\renewcommand{\maketitle}{
+    \hbadness=10000
     \make@nwpu@coverpage                                    % 封皮页
     \make@nwpu@chs@title                                    % 中文内封
     \make@nwpu@eng@title                                    % 英文内封
@@ -914,6 +915,7 @@
 }{\setlength{\parindent}{\oldparindent} \cleardoublepage}   %
 %%-----------------------------------------------------------------------------%
 \newcommand{\makestatement}{                                % 知识产权与原创性声明
+    \hbadness=10000
     \begin{titlepage}
         \vspace*{-1.5mm}
         \begin{minipage}{149.6mm}
