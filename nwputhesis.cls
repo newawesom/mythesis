@@ -1,10 +1,3 @@
-%%
-%% This is file `nwputhesis.cls',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% nwputhesis.dtx  (with options: `class')
 %% Copyright (C) 2022 by Shangkun Shen
 %% 
 %% It may be distributed and/or modified under the conditions of the LaTeX
