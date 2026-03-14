@@ -1,9 +1,14 @@
 # NwpuThesis
-本人为计算机学院26届硕士，本模板格式已成功通过学校的论文最终版提交。
+本仓库基于 [Yet-Another-LaTeX-Template-for-NPU-Thesis](https://github.com/NWPUMetaphysicsOffice/Yet-Another-LaTeX-Template-for-NPU-Thesis) 修改而成，旨在提供格式更加完善，更易用的 tex 模板。本模板格式符合 2025 年西北工业大学研究生院编写的 [西北工业大学研究生学位论文写作指南](https://gs.nwpu.edu.cn/info/2283/30467.htm)，已成功通过学校的论文最终版提交（26届）。
 
-本仓库基于 [Yet-Another-LaTeX-Template-for-NPU-Thesis](https://github.com/NWPUMetaphysicsOffice/Yet-Another-LaTeX-Template-for-NPU-Thesis) 修改而成。
-
-模板格式符合 2025 年西北工业大学研究生院编写的 [西北工业大学研究生学位论文写作指南](https://gs.nwpu.edu.cn/info/2283/30467.htm)。
+## 使用说明
+- 本项目仅建议在 Windows + Tex Live 环境下使用
+- 推荐搭配 VS Code 中的 LaTeX Workshop 插件使用
+  提供了两种编译方式（如下图所示）：
+  - **Recipe: xelatex + bibtex + xelatex x 2**：包含 BibTeX，想要正确编译参考文献时必须使用此种方式，但是编译速度很慢
+  - **Recipe: xelatex (fast)**：快速编译，在不修改参考文献时使用
+  - 推荐平常使用第二种方式即可，只在添加参考文献时使用第一种方式
+  ![[编译方式]](figures/example.png)
 
 ## 先前项目中存在的格式问题（在本项目中均已修正）
 
@@ -18,15 +23,6 @@
 | 中文摘要页 | “关键词：” 字体              | 宋体，加粗         | 黑体，不加粗       |
 | 英文摘要页 | 关键词的英文写法             | Key Words          | Key words          |
 | 页脚       | 字号                         | 五号               | 小五号             |
-
-## 使用说明
-- 本项目仅建议在 Windows + Tex Live 环境下使用
-- 推荐搭配 VS Code 中的 LaTeX Workshop 插件使用
-  提供了两种编译方式（如下图所示）：
-  - **Recipe: xelatex + bibtex + xelatex x 2**：包含 BibTeX，想要正确编译参考文献时必须使用此种方式，但是编译速度很慢
-  - **Recipe: xelatex (fast)**：快速编译，在不修改参考文献时使用
-  - 推荐平常使用第二种方式即可，只在添加参考文献时使用第一种方式
-  ![[编译方式]](figures/example.png)
 
 ## 其他改进
 - 将封皮右上角的内容从 cls 文件中迁移到 tex 文件当中，便于用户修改。
