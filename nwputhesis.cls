@@ -612,6 +612,18 @@
     \settowidth{\chstitle@hwidtha}{\sSanhao\nwpu@chs@schoolname}
     \newlength{\chstitle@hwidthb}                           % 小标题宽度
     \settowidth{\chstitle@hwidthb}{\sYihao\nwpu@chs@doctitle}
+    % 定义长度变量
+    \newlength{\author@width}
+    \newlength{\advisor@width}
+    \newlength{\maxname@width}
+    % 测量宽度（注意使用相同字体 \sSanhao）
+    \settowidth{\author@width}{\sSanhao\nwpu@chs@author}
+    \settowidth{\advisor@width}{\sSanhao\nwpu@chs@advisor}
+    % 取最大值
+    \setlength{\maxname@width}{\author@width}
+    \ifdim\advisor@width>\maxname@width
+        \setlength{\maxname@width}{\advisor@width}
+    \fi
     \begin{titlepage}                                       %
         \renewcommand{\baselinestretch}{1.5}                % 1.5 倍行距
         \fSong \sSanhao \par \vspace{1\baselineskip}        % 1 * 21pt * 1.5
@@ -640,8 +652,8 @@
             \copy123\kern-\wd123\box124 \fSong \sWuhao \par % 排版结束
             \vspace{7\baselineskip}                         % 7 * 10.5pt * 1.5
             \sSanhao \nwpu@chs@innerCoverFirstOption：\coverunderline[5.5cm]{\nwpu@chs@major} \\
-            \sSanhao 作{\qquad}者：\coverunderline[5.5cm]{\nwpu@chs@author} \\
-            \sSanhao 指导教师：\coverunderline[5.5cm]{\nwpu@chs@advisor} \\
+\sSanhao 作{\qquad}者：\coverunderline[5.5cm]{\makebox[\maxname@width][s]{\nwpu@chs@author}} \\
+\sSanhao 指导教师：\coverunderline[5.5cm]{\makebox[\maxname@width][s]{\nwpu@chs@advisor}} \\
             \fSong \sWuhao \par                             %
             \vspace{2\baselineskip}                         % 2 * 10.5pt * 1.5
             \fSong \sSanhao \nwpu@chs@date                  %
