@@ -72,8 +72,9 @@
 
 本项目基于 [Yet-Another-LaTeX-Template-for-NPU-Thesis](https://github.com/NWPUMetaphysicsOffice/Yet-Another-LaTeX-Template-for-NPU-Thesis) 修改，采用 [GNU General Public License v3.0](LICENSE) 许可证发布。
 
-- 原作者：Shangkun Shen
-- 本版本修改者：Jiayi Yan
+Copyright (c) 2016-2022 NWPU Metaphysics Office https://github.com/NWPUMetaphysicsOffice
+
+Modified (c) 2026 by Jiayi Yan
 
 你可以自由使用、修改和分发本模板，但必须：
 - 保留原作者和修改者的版权声明
