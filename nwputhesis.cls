@@ -1,5 +1,5 @@
 %% Copyright (C) 2022 by Shangkun Shen
-%% Modified (C) 2025 by Jiayi Yan
+%% Modified (C) 2026 by Jiayi Yan
 %%
 %% This work is licensed under the GNU General Public License v3.
 %% You may distribute and/or modify it under the terms of the GPL v3.
