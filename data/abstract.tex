@@ -1,0 +1,36 @@
+%% 封面、摘要、目录
+
+% 封皮页及标题页
+\maketitle
+
+%% 学位论文评阅人和答辩委员会名单
+\makeCommitteePage{
+    \reviewers{\fullBlindReview{2}}
+    \committee{20XX 年 X 月 X 日}{
+        \defenseChair{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \committeeMember{XXX}{教授}{西北工业大学}
+        \defenseSecretary{XXX}{讲师}{西北工业大学}
+    }
+}
+
+% 中文摘要
+\begin{abstract}
+    这是在西北工业大学硕博研究生毕业论文格式的要求下的一份 LaTeX 文档类模板。
+    \begin{keywords}
+        学位论文 \sep 模板 \sep \LaTeX
+    \end{keywords}
+\end{abstract}
+
+% 英文摘要
+\begin{engabstract}
+    This is
+    \begin{engkeywords}
+        thesis \ensep template \ensep \LaTeX
+    \end{engkeywords}
+\end{engabstract}
+
+% 目录
+\tableofcontents

@@ -13,28 +13,8 @@
 % 选项：degree=master|phd, academic=true|false, blindreview=true|false, colorcover=true|false
 \documentclass[degree=master, academic=true, blindreview=false, colorcover=true]{nwputhesis}
 
-% 封面右上角信息
-\schoolcode{10699}                % 学校代码
-\classnumber{TP311.1}             % 分类号
-\securitylevel{公开}              % 密级
-\studentnumber{\blindreview{2023123456}}  % 学号
-
-% 其它基本信息
-\title{基于 LaTeX 排版的 \\ 西北工业大学论文模板}{          % 中英文标题
-    Yet Another Thesis Template of \\ Northwestern Polytechnical University
-}
-\author{\blindreview{航小天}}{\blindreview{Xiaotian Hang}}  % 姓名
-\dateyear{2026}                                             % 申请年份
-\datemonth{3}                                                % 申请月份
-\schoolname{西北工业大学}{Northwestern Polytechnical University}
-\school{计算机学院}                                          % 学院
-\major{计算机科学与技术}{Computer Science and Technology}    % 专业
-\advisor{\blindreview{张三}}{\blindreview{San Zhang}}       % 导师
-\advisorAcademicRank{教授}{Professor}                         % 导师学术职位
-\funding{本研究得到玄学基金（编号 23336666）资助。}{
-    The present work is supported by Funding of Metaphysics
-    (Project No: 23336666).
-}                                                              % 基金资助
+% 个人信息设置
+\input{data/info}
 
 %%=============================================================================%
 %% 文档开始
@@ -42,40 +22,8 @@
 \begin{document}
 
 \frontmatter
-% 封皮页及标题页
-\maketitle
-
-%% 学位论文评阅人和答辩委员会名单
-\makeCommitteePage{
-    \reviewers{\fullBlindReview{2}}
-    \committee{20XX 年 X 月 X 日}{
-        \defenseChair{XXX}{教授}{西北工业大学}
-        \committeeMember{XXX}{教授}{西北工业大学}
-        \committeeMember{XXX}{教授}{西北工业大学}
-        \committeeMember{XXX}{教授}{西北工业大学}
-        \committeeMember{XXX}{教授}{西北工业大学}
-        \defenseSecretary{XXX}{讲师}{西北工业大学}
-    }
-}
-
-% 中文摘要
-\begin{abstract}
-    这是在西北工业大学硕博研究生毕业论文格式的要求下的一份 LaTeX 文档类模板。
-    \begin{keywords}
-        学位论文 \sep 模板 \sep \LaTeX
-    \end{keywords}
-\end{abstract}
-
-% 英文摘要
-\begin{engabstract}
-    This is
-    \begin{engkeywords}
-        thesis \ensep template \ensep \LaTeX
-    \end{engkeywords}
-\end{engabstract}
-
-% 目录
-\tableofcontents
+% 封面、摘要、目录
+\input{data/abstract}
 
 %%=============================================================================%
 %% 论文正文
@@ -83,66 +31,9 @@
 \mainmatter
 \sDefault
 
-\chapter{绪论}
-\chaptermark{绪论}
-\section{这是中标题}
-\subsection{这是小标题}
-\subsubsection{这是小小标题}
-测试引用 1\cite{NWPUThesisLaTeXTemplate}，引用 2\cite{chen2014maiyuan,knuth1986the}，引用 3\cite{MathSymbolsinLaTeXbypolossk,shen2021peridynamic,chen2018autonomous}。
-
-\cleardoublepage
-
-\chapter{插入图表以及如何引用}
-\chaptermark{插入图表以及如何引用}
-
-\section{表格}
-
-\begin{table}[!h]
-    \centering
-    \caption{表格标题}
-    \label{my-label}
-    \begin{tabularx}{\textwidth}{CCCC}
-        \toprule
-        $A$ & $B$ & $A+B$ & $A\times B$ \\ \midrule
-        1   & 6   & 7     & 6           \\
-        2   & 7   & 9     & 14          \\
-        3   & 8   & 11    & 24          \\ \bottomrule
-    \end{tabularx}
-\end{table}
-
-\section{插图}
-测试下文章内的图片引用。如\autoref{fig:example} 和\autoref{fig:example2} 所示，
-这是两幅插图。在这其中\autoref{subfig:example2-subfig1} 是第一幅子图，
-\autoref{subfig:example2-subfig2} 是第二幅子图。
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[scale=0.5]{example.png}
-    \caption{这里是个普通的标题}
-    \label{fig:example}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \begin{minipage}[t]{0.96\textwidth}
-        \centering
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[scale=0.5]{example.png}
-            \caption{\label{subfig:example2-subfig1}}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.47\textwidth}
-            \centering
-            \includegraphics[scale=0.5]{example.png}
-            \caption{\label{subfig:example2-subfig2}}
-        \end{subfigure}
-    \end{minipage}
-    \caption{这里是另一个普通的标题}
-    \label{fig:example2}
-\end{figure}
-
-\cleardoublepage
-
+% 各章节
+\input{data/chapter1}
+\input{data/chapter2}
 
 % 参考文献
 \bibliographystyle{nputhesis-noslash}
@@ -150,27 +41,14 @@
 
 % 附录
 \appendix
-\chapter{一份说明}
-
-\section{测试附录子标题}
-
-这是一份附录。
-\begin{equation}
-    S = \pi r^2
-\end{equation}
-
-\cleardoublepage
+\input{data/appendix}
 
 \backmatter
 % 致谢
-\begin{acknowledgements}
-    感谢我的老师和我的朋友们……
-\end{acknowledgements}
+\input{data/acknowledgements}
 
 % 参加科研情况
-\begin{accomplishments}
-    [1] ...
-\end{accomplishments}
+\input{data/accomplishments}
 
 % 知识产权与原创性声明
 \makestatement
