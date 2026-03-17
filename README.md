@@ -10,9 +10,9 @@
 ### 字体说明（Windows 用户无需关注）
 最终版论文建议以 Windows 字体呈现。
 
-本模板已内置字体自动检测功能，模板会自动检测系统是否安装了 Windows 字体，如果检测到 Windows 字体，则直接使用，如果未检测到，则自动回退到替代字体。
-- **Linux 用户**： WSL 用户可以直接配置使用 Windows 系统内的字体，非 WSL 用户如果未安装 Windows 字体，则会回退到 fonts-noto-cjk（中文） 和 tex-gyre （英文），请自行安装这两个字体包。
-- **macOS 用户**：回退为默认字体。
+本模板已内置字体自动检测功能，如果检测到系统内有 Windows 字体，则直接使用，如果未检测到，则自动回退到替代字体。
+
+另外，WSL 用户可以直接在系统内配置使用 Windows 系统内的字体，请自行搜索配置方法；非 WSL 的 Linux 用户如果未安装 Windows 字体，则会回退到 fonts-noto-cjk（中文） 和 tex-gyre （英文），请自行安装这两个字体包。
 
 ### 设置论文格式
 在 `nwputhesis-sample.tex` 文件中，通过 `\documentclass` 的选项来设置论文格式：
