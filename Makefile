@@ -50,6 +50,10 @@ cleanall: clean
 distclean: cleanall
 	-@$(RM) -f *.cls *.sty 2>/dev/null || true
 
-# 测试目标（用于 CI）
-test: thesis
-	@echo "Build test passed"
+# 测试目标（用于 CI，使用 l3build）
+test:
+ifeq ($(target),)
+	l3build check
+else
+	bash testfiles/test.sh $(target)
+endif

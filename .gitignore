@@ -22,3 +22,5 @@ nwputhesis-sample.synctex(busy)
 *.xdv
 *.fls
 *.fdb_latexmk
+## test files:
+build/

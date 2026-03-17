@@ -6,6 +6,7 @@ env:
   XECJK_PKGS: fontspec xecjk ulem xetex
   CTEX_PKGS: cjk ctex everysel zhnumber
   BIB_PKGS: bibtex natbib
+  BIN_PKGS: latexmk l3build
   REQUIRED_PKGS: >-
     xkeyval etoolbox amsmath amssymb
     geometry hyperref bookmark type1cm
@@ -35,7 +36,7 @@ jobs:
           packages: >-
             ${{ env.XECJK_PKGS }} ${{ env.CTEX_PKGS }} ${{ env.BIB_PKGS }}
             ${{ env.REQUIRED_PKGS }} ${{ env.TIKZ_PKGS }} ${{ env.FONT_PKGS }}
-            latexmk
+            ${{ env.BIN_PKGS }}
           update-all-packages: true
 
       - name: Build document
@@ -63,7 +64,7 @@ jobs:
           packages: >-
             ${{ env.XECJK_PKGS }} ${{ env.CTEX_PKGS }} ${{ env.BIB_PKGS }}
             ${{ env.REQUIRED_PKGS }} ${{ env.TIKZ_PKGS }} ${{ env.FONT_PKGS }}
-            latexmk
+            ${{ env.BIN_PKGS }}
           update-all-packages: true
 
       - name: Build document
@@ -75,5 +76,5 @@ jobs:
         with:
           name: test-result-${{ matrix.os }}
           path: |
-            *.log
-            *.aux
+            build/test
+            build/test-testfiles
