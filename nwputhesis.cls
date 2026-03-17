@@ -123,24 +123,49 @@
 \newcommand\codeFont{Consolas}                              % 等宽英文默认字体
 %%-----------------------------------------------------------------------------%
 % 根据系统和字体可用性设置字体
+\newcommand{\npu@set@fandol@fonts}{%
+    \typeout{[nwputhesis] Using Fandol fonts (TeX Live built-in).}%
+    \renewcommand\defaultSog{FandolSong}%
+    \renewcommand\defaultHei{FandolHei}%
+    \renewcommand\defaultKai{FandolKai}%
+    \renewcommand\defaultFag{FandolFang}%
+    \renewcommand\defaultEngFont{TeX Gyre Termes}%
+    \renewcommand\codeFont{DejaVu Sans Mono}%
+}
+\newcommand{\npu@set@noto@fonts}{%
+    \typeout{[nwputhesis] Using Noto CJK fonts.}%
+    \renewcommand\defaultSog{Noto Serif CJK SC}%
+    \renewcommand\defaultHei{Noto Sans CJK SC}%
+    \renewcommand\defaultKai{Noto Serif CJK SC}%
+    \renewcommand\defaultFag{Noto Serif CJK SC}%
+    \renewcommand\defaultEngFont{TeX Gyre Termes}%
+    \renewcommand\codeFont{DejaVu Sans Mono}%
+}
+\newcommand{\npu@set@mac@fonts}{%
+    \typeout{[nwputhesis] Using macOS fonts.}%
+    \renewcommand\defaultSog{STSongti-SC-Regular}%
+    \renewcommand\defaultHei{STHeiti}%
+    \renewcommand\defaultKai{STKaiti}%
+    \renewcommand\defaultFag{STFangSong}%
+    \renewcommand\defaultEngFont{TeX Gyre Termes}%
+    \renewcommand\codeFont{Menlo}%
+}
 \newcommand{\npu@fallback@fonts}{%
     \iflinux
-        \typeout{[nwputhesis] Windows fonts not found, using Linux fonts.}
-        \renewcommand\defaultSog{Noto Serif CJK SC}
-        \renewcommand\defaultHei{Noto Sans CJK SC}
-        \renewcommand\defaultKai{Noto Serif CJK SC}
-        \renewcommand\defaultFag{Noto Serif CJK SC}
-        \renewcommand\defaultEngFont{TeX Gyre Termes}
-        \renewcommand\codeFont{DejaVu Sans Mono}
+        % Linux: 检测 Noto 字体，没有则 fallback 到 fandol
+        \IfFontExistsTF{Noto Serif CJK SC}{%
+            \npu@set@noto@fonts
+        }{%
+            \npu@set@fandol@fonts
+        }%
     \fi
     \ifmacosx
-        \typeout{[nwputhesis] Windows fonts not found, using macOS fonts.}
-        \renewcommand\defaultSog{STSongti-SC-Regular}
-        \renewcommand\defaultHei{STHeiti}
-        \renewcommand\defaultKai{STKaiti}
-        \renewcommand\defaultFag{STFangSong}
-        \renewcommand\defaultEngFont{TeX Gyre Termes}
-        \renewcommand\codeFont{Menlo}
+        % macOS: 检测系统字体，没有则 fallback 到 fandol
+        \IfFontExistsTF{STSongti-SC-Regular}{%
+            \npu@set@mac@fonts
+        }{%
+            \npu@set@fandol@fonts
+        }%
     \fi
 }
 \if@npu@font@winfonts\relax                                 % 强制使用 Win 字体选项

@@ -1,0 +1,79 @@
+name: Build
+
+on: [push, pull_request, workflow_dispatch]
+
+env:
+  XECJK_PKGS: fontspec xecjk ulem xetex
+  CTEX_PKGS: cjk ctex everysel zhnumber
+  BIB_PKGS: bibtex natbib
+  REQUIRED_PKGS: >-
+    xkeyval etoolbox amsmath amssymb
+    geometry hyperref bookmark type1cm
+    silence ifplatform indentfirst
+    titlesec titletoc fancyhdr fancyref
+    enumerate enumitem graphicx pdfpages xcolor
+    caption subcaption wrapfig multirow makecell
+    longtable booktabs tabularx setspace ragged2e
+    ntheorem listings appendix nomencl multicol
+    algorithms algorithmicx
+  TIKZ_PKGS: pgf tikz
+  FONT_PKGS: fandol tex-gyre
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install TeX Live
+        uses: TeX-Live/setup-texlive-action@v4
+        with:
+          packages: >-
+            ${{ env.XECJK_PKGS }} ${{ env.CTEX_PKGS }} ${{ env.BIB_PKGS }}
+            ${{ env.REQUIRED_PKGS }} ${{ env.TIKZ_PKGS }} ${{ env.FONT_PKGS }}
+            latexmk
+          update-all-packages: true
+
+      - name: Build document
+        run: make
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: nwputhesis-pdf
+          path: nwputhesis-sample.pdf
+          retention-days: 30
+
+  test:
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install TeX Live
+        uses: TeX-Live/setup-texlive-action@v4
+        with:
+          packages: >-
+            ${{ env.XECJK_PKGS }} ${{ env.CTEX_PKGS }} ${{ env.BIB_PKGS }}
+            ${{ env.REQUIRED_PKGS }} ${{ env.TIKZ_PKGS }} ${{ env.FONT_PKGS }}
+            latexmk
+          update-all-packages: true
+
+      - name: Build document
+        run: make test
+
+      - name: Upload test results if failed
+        uses: actions/upload-artifact@v5
+        if: failure()
+        with:
+          name: test-result-${{ matrix.os }}
+          path: |
+            *.log
+            *.aux
