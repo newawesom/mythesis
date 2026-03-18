@@ -1,6 +1,6 @@
 # NwpuThesis
 
-[![Build](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml/badge.svg)](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml)
+[![Test](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml/badge.svg)](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml)
 
 本模板已成功通过学校的论文最终版提交（26届），是目前已知所有西北工业大学硕博学位论文 LaTeX 模板中最新最完善的。
 
