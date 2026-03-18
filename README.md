@@ -18,6 +18,19 @@
 
 ![[编译方式]](figures/example.png)
 
+### 论文格式设置
+在 `nwputhesis-sample.tex` 文件中，通过 `\documentclass` 的选项来设置论文格式：
+
+```latex
+\documentclass[degree=master, academic=true, blindreview=false, colorcover=true]{nwputhesis}
+```
+
+各选项说明：
+- `degree=master|phd`：设置学位，`master` 为硕士，`phd` 为博士
+- `academic=true|false`：设置学位类型，`true` 为学术型学位，`false` 为专业型学位
+- `blindreview=true|false`：设置是否盲评，`true` 为盲评版本（隐藏个人信息），`false` 为正常版本
+- `colorcover=true|false`：设置是否使用彩色封面和封底，`true` 为彩色（论文最终版提交电子版需要），`false` 为普通版本（用于打印）
+
 ### 文件修改说明
 用户基本只需要修改 `data` 目录和 `ref` 下的文件：
 - `data/info.tex`：个人信息
@@ -40,19 +53,6 @@
 
 ### 参考文献格式
 参考文献采用 GB/T 7714 标准，使用常见的悬挂缩进格式（而非首行缩进），可以正常通过学校格式审查。
-
-### 论文格式设置
-在 `nwputhesis-sample.tex` 文件中，通过 `\documentclass` 的选项来设置论文格式：
-
-```latex
-\documentclass[degree=master, academic=true, blindreview=false, colorcover=true]{nwputhesis}
-```
-
-各选项说明：
-- `degree=master|phd`：设置学位，`master` 为硕士，`phd` 为博士
-- `academic=true|false`：设置学位类型，`true` 为学术型学位，`false` 为专业型学位
-- `blindreview=true|false`：设置是否盲评，`true` 为盲评版本（隐藏个人信息），`false` 为正常版本
-- `colorcover=true|false`：设置是否使用彩色封面和封底，`true` 为彩色（论文最终版提交电子版需要），`false` 为普通版本（用于打印）
 
 ### 先前项目中存在的格式问题（在本项目中均已修正）
 
