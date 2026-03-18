@@ -1,6 +1,7 @@
 # NwpuThesis
 
 [![Test](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml/badge.svg)](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 本模板已成功通过学校的论文最终版提交（26届），是目前已知所有西北工业大学硕博学位论文 LaTeX 模板中最新最完善的。
 
