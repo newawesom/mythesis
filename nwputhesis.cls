@@ -271,7 +271,13 @@
         ItalicFont     = texgyreheros-italic.otf,
         BoldItalicFont = texgyreheros-bolditalic.otf,
     ]
-    \setmonofont{DejaVu Sans Mono}[Scale=0.9]
+    \setmonofont{TeX Gyre Cursor}[
+        Scale         = 0.9,
+        UprightFont   = texgyrecursor-regular.otf,
+        BoldFont      = texgyrecursor-bold.otf,
+        ItalicFont    = texgyrecursor-italic.otf,
+        BoldItalicFont= texgyrecursor-bolditalic.otf,
+    ]
     \setmainfont{TeX Gyre Termes}[
         UprightFont    = texgyretermes-regular.otf,
         BoldFont       = texgyretermes-bold.otf,
