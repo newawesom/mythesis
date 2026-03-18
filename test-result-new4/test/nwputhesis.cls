@@ -258,13 +258,7 @@
         Extension   = .otf,
         UprightFont = *-Regular,
     ]
-    \newfontfamily\engfont{TeX Gyre Termes}[
-        UprightFont    = texgyretermes-regular.otf,
-        BoldFont       = texgyretermes-bold.otf,
-        ItalicFont     = texgyretermes-italic.otf,
-        BoldItalicFont = texgyretermes-bolditalic.otf,
-    ]
-    \newcommand{\fEng}{\engfont}                                 % 英文: fEng
+    \setCJKfamilyfont{eng}{TeX Gyre Termes}
     \setsansfont{TeX Gyre Heros}[
         UprightFont    = texgyreheros-regular.otf,
         BoldFont       = texgyreheros-bold.otf,
@@ -286,7 +280,6 @@
     \setCJKfamilyfont{kai}{\defaultKai}                         %
     \setCJKfamilyfont{fang}{\defaultFag}                        %
     \setCJKfamilyfont{eng}{\defaultEngFont}                     %
-    \newcommand{\fEng}{\CJKfamily{eng}}                         % 英文: fEng
     \setsansfont{\defaultEngSansFont}                           %
     \setmonofont{\codeFont}                                     %
     \setmainfont{\defaultEngFont}                               %
@@ -295,6 +288,7 @@
 \newcommand{\fHei}{\CJKfamily{hei}}                         % 黑体: fHei
 \newcommand{\fKai}{\CJKfamily{kai}}                         % 楷体: fKai
 \newcommand{\fFang}{\CJKfamily{fang}}                       % 仿宋: fFang
+\newcommand{\fEng}{\CJKfamily{eng}}                         % 英文: fEng
 \XeTeXlinebreaklocale "zh"                                  % 使用中文的换行风格
 \XeTeXlinebreakskip = 0pt plus 1pt                          % 换行逻辑的弹性大小
 %%-----------------------------------------------------------------------------%
