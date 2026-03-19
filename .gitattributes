@@ -1,0 +1,22 @@
+# 开发相关
+.github/ export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+
+# 文档
+CONTRIBUTING.md export-ignore
+
+# 构建产物和辅助文件
+build/ export-ignore
+testfiles/ export-ignore
+build.lua export-ignore
+*.aux export-ignore
+*.bbl export-ignore
+*.blg export-ignore
+*.fdb_latexmk export-ignore
+*.fls export-ignore
+*.log export-ignore
+*.nlo export-ignore
+*.synctex.gz export-ignore
+*.thm export-ignore
+*.toc export-ignore
