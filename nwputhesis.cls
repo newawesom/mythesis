@@ -240,6 +240,11 @@
         UprightFont = *-Regular,
         BoldFont    = *-Bold,
     ]
+    \setCJKmonofont{FandolHei}[
+        Extension   = .otf,
+        UprightFont = *-Regular,
+        BoldFont    = *-Bold,
+    ]
     \setCJKfamilyfont{song}{FandolSong}[
         Extension   = .otf,
         UprightFont = *-Regular,
@@ -287,6 +292,7 @@
 \else
     \setCJKmainfont[ItalicFont=\defaultKai, AutoFakeBold]{\defaultSog}
     \setCJKsansfont[ItalicFont=\defaultKai, AutoFakeBold]{\defaultSog}
+    \setCJKmonofont[AutoFakeBold]{\defaultHei}
     \setCJKfamilyfont{song}{\defaultSog}                        % 设置 CJK 字体族
     \setCJKfamilyfont{hei}{\defaultHei}                         %
     \setCJKfamilyfont{kai}{\defaultKai}                         %
