@@ -979,18 +979,18 @@
             \end{center}                                    %
             \vskip 0.7cm                                    %
             \sChuhao\fSong {\bfseries 本科毕业设计（论文）}   %
-            \vskip 5cm                                      %
+            \vskip 6cm                                      %
             {                                               %
-                \sSanhao\fHei 题~~目 \hspace{0.2cm}\coverunderline[12.5cm]{\nwpu@chs@title} %
+                \sSanhao\fHei 题~~目 \hspace{0.2cm}\coverunderline[10cm]{\nwpu@chs@title} %
             }                                               %
-            \vskip 2cm                                      %
+            \vskip 2.5cm                                    %
             {                                               %
                 \sSihao\fSong 专业名称\coverunderline[5.5cm]{\nwpu@chs@major} %
-                \vskip 0.7cm                                %
+                \vskip 1cm                                %
                 \sSihao\fSong 学生姓名\coverunderline[5.5cm]{\nwpu@chs@author} %
-                \vskip 0.7cm                                %
+                \vskip 1cm                                %
                 \sSihao\fSong 指导教师\coverunderline[5.5cm]{\nwpu@chs@advisor} %
-                \vskip 0.7cm                                %
+                \vskip 1cm                                %
                 \sSihao\fSong 毕业时间\coverunderline[5.5cm]{\nwpu@chs@date} %
                 \vfill                                      %
             }                                               %
