@@ -1,5 +1,8 @@
 testfiledir = "testfiles/01-title-page"
-testsuppdir = testfiledir .. "/support"
 
 includetests = {"*"}
 excludetests = {}
+
+-- 使用主配置的支持文件目录
+supportdir = "testfiles/support"
+checksuppfiles = {"*.tex", "*.bib", "figures/*", "*.ttf"}

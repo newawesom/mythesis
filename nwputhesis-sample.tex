@@ -5,11 +5,15 @@
 %% 本项目: https://github.com/1195343015/nwputhesis
 
 %% 设置论文格式（学位、学位类型、盲评、彩色封面&封底）
-% 选项：degree=master|phd, academic=true|false, blindreview=true|false, colorcover=true|false
+% 选项：
+%   degree=bachelor|master|phd   （本科|硕士|博士）
+%   academic=true|false          （学术学位|专业学位，仅硕博有效）
+%   blindreview=true|false       （盲评模式）
+%   colorcover=true|false        （彩色封面封底）
 \documentclass[degree=master, academic=true, blindreview=false, colorcover=true]{nwputhesis}
 
 % 个人信息设置
-\input{data/info}
+\ifbachelor{\input{data/ungraduate-info}}{\input{data/graduate-info}}
 
 \begin{document}
 
@@ -18,8 +22,8 @@
 % 封皮页及标题页
 \maketitle
 
-% 答辩委员会
-\input{data/committee}
+% 答辩委员会（仅硕博）
+\ifgraduate{\input{data/graduate-committee}}{}
 
 % 摘要
 \input{data/abstract}
@@ -42,19 +46,24 @@
 \bibliographystyle{nputhesis-noslash}
 \bibliography{ref/reference}
 
-% 附录
-\appendix
-\input{data/appendix}
+% 附录（研究生在致谢之前）
+\ifgraduate{\input{data/appendix}}{}
 
 \backmatter
 
 % 致谢
 \input{data/acknowledgements}
 
-% 参加科研情况
-\input{data/accomplishments}
+% 毕业设计小结（仅本科）
+\ifbachelor{\input{data/ungraduate-designsummary}}{}
 
-% 知识产权与原创性声明
-\makestatement
+% 附录（仅本科，在致谢之后）
+\ifbachelor{\input{data/appendix}}{}
+
+% 参加科研情况（仅硕博）
+\ifgraduate{\input{data/graduate-accomplishments}}{}
+
+% 知识产权与原创性声明（仅硕博）
+\ifgraduate{\makestatement}{}
 
 \end{document}

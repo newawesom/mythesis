@@ -5,7 +5,7 @@
 module = "nwputhesis"
 
 supportdir = "./testfiles/support"
-checksuppfiles = {"*.tex", "*.bib"}
+checksuppfiles = {"*.tex", "*.bib", "figures/*", "*.ttf"}
 
 installfiles = {"*.cls", "*.bst"}
 sourcefiles = {"*.cls", "*.bst"}

@@ -18,7 +18,7 @@
 *.hd
 zhmakeindex
 __latexindent_temp_nwputhesis.cls
-nwputhesis-sample.synctex(busy)
+*.synctex(busy)
 *.xdv
 *.fls
 *.fdb_latexmk

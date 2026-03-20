@@ -56,8 +56,17 @@
 \ExecuteOptionsX{colorcover=false}                          % 默认不启用彩色封面封底
 \ProcessOptionsX \relax                                     %
 \let\@unusedoptionlist\@empty                               % 清除未使用选项警告
-\LoadClass[11pt, a4paper, openany, twoside]{book}           % 默认双面印刷
+\LoadClass[11pt, a4paper, openany]{book}           % 本科单面印刷，硕博双面印刷
+\if@npu@type@bcl
+    \@twosidefalse\@mparswitchfalse                 % 本科强制单面印刷
+\fi
 \RequirePackage{etoolbox}                                   % LaTeX 补丁工具
+%%-----------------------------------------------------------------------------%
+%% 用户级条件命令
+%%-----------------------------------------------------------------------------%
+\newcommand{\ifbachelor}[2]{\if@npu@type@bcl#1\else#2\fi}   % 本科/研究生条件
+\newcommand{\ifgraduate}[2]{\if@npu@type@bcl#2\else#1\fi}   % 研究生/本科条件
+%%-----------------------------------------------------------------------------%
 \RequirePackage{amssymb}                                    % AMS 数学符号
 \RequirePackage{tikz}                                        % 彩色封面封底背景图定位
 %%=============================================================================%
@@ -80,9 +89,15 @@
 %% 格式控制及组件控制
 %%-----------------------------------------------------------------------------%
 \RequirePackage{geometry}                                   % 纸张尺寸及页边距
-\geometry{a4paper,                                          % A4 纸张
-    left=2.5cm, right=2.5cm, top=2.54cm, bottom=2.54cm,     % 页边距
-    headheight=0.93cm, headsep=0.11cm, footskip=0.79cm}     % 页眉页脚位置
+\if@npu@type@bcl                                            % 本科论文页边距
+    \geometry{a4paper,                                      % A4 纸张
+        left=1.25in, right=1.25in, top=1in, bottom=1in,    % 页边距
+        headheight=0.93cm, headsep=0.11cm, footskip=0.79cm}% 页眉页脚位置
+\else                                                       % 硕博论文页边距
+    \geometry{a4paper,                                      % A4 纸张
+        left=2.5cm, right=2.5cm, top=2.54cm, bottom=2.54cm, % 页边距
+        headheight=0.93cm, headsep=0.11cm, footskip=0.79cm} % 页眉页脚位置
+\fi
 %%-----------------------------------------------------------------------------%
 \RequirePackage[                                            % 超链接设置
     unicode=true,                                           % 允许 Unicode
@@ -309,11 +324,22 @@
 \newcommand{\fHei}{\CJKfamily{hei}}                         % 黑体: fHei
 \newcommand{\fKai}{\CJKfamily{kai}}                         % 楷体: fKai
 \newcommand{\fFang}{\CJKfamily{fang}}                       % 仿宋: fFang
+\if@npu@type@bcl                                            % 本科论文需要特殊字体和CJKnumb
+    \RequirePackage{CJKnumb}                                % 中文数字
+    \setCJKfamilyfont{nwpu}{nwpuname}                       % 本科校名特殊字体
+    \IfFileExists{figures/nwpuname.ttf}%
+        {\newCJKfontfamily{\fNWPU}[Path=figures/]{nwpuname.ttf}}%
+        {\newCJKfontfamily{\fNWPU}{nwpuname.ttf}}%          % 测试环境备用路径
+\fi
 \XeTeXlinebreaklocale "zh"                                  % 使用中文的换行风格
 \XeTeXlinebreakskip = 0pt plus 1pt                          % 换行逻辑的弹性大小
 %%-----------------------------------------------------------------------------%
 \RequirePackage{indentfirst}                                % 段首空格设置
-\setlength\parindent{24pt}                                  % 段首空格长度
+\if@npu@type@bcl                                            % 本科论文段首空格
+    \setlength\parindent{26pt}                              % 段首空格长度（本科）
+\else
+    \setlength\parindent{24pt}                              % 段首空格长度（硕博）
+\fi
 \setlength\parskip{0pt}                                     % 段落间距
 \renewcommand{\baselinestretch}{1.0}                        % 行距
 %%-----------------------------------------------------------------------------%
@@ -328,31 +354,54 @@
 \RequirePackage{titletoc}                                   % 目录格式
 \setcounter{secnumdepth}{3}                                 % 标题计数器深度
 \setcounter{tocdepth}{2}                                    % 目录中标题深度
-\titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter  %
-    \sffamily\fHei}{\sffamily\fHei\sSanhao{\chaptertitlename}}{20pt}{\sSanhao}%
-\titleformat{\section}[hang]{\sffamily\fHei\sSihao}{%       %
-    \sffamily\fHei\sSihao\thesection}{0.5em}{}{}            %
-\titleformat{\subsection}[hang]{\sffamily\fHei\sHgXiaosi}{% %
-    \sffamily\fHei\sHgXiaosi\thesubsection}{0.5em}{}{}      %
-\titleformat{\subsubsection}[hang]{\sffamily\fHei}{%        % 小标题: (4) 标题
-    (\arabic{subsubsection})}{0.5em}{}{}                    %
-\titlespacing{\chapter}{0pt}{-2pt}{14pt}                    % 缩小标题之间缩进
-\titlespacing{\section}{0pt}{7pt}{0em}                      %
-\titlespacing{\subsection}{0pt}{6.5pt}{0em}                 %
-\titlespacing{\subsubsection}{0pt}{0.25em}{0pt}             %
-\titlespacing{\paragraph}{0pt}{0.25em}{0pt}                 %
+\if@npu@type@bcl                                            % 本科论文章节格式
+    \renewcommand{\thechapter}{\arabic{chapter}}            % 章节编号保持数字
+    \renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}% 章节名称（中文数字）
+    \titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter\fHei}% 一级：三号黑体不加粗
+        {第\CJKnumber{\thechapter}章}{1em}{\sSanhao}
+    \titleformat{\section}[hang]{\sSihao\fHei}% 二级：四号黑体不加粗
+        {\sSihao\thesection}{0.5em}{}{}
+    \titleformat{\subsection}[hang]{\sXiaosi\fHei}% 三级：小四黑体不加粗
+        {\sXiaosi\thesubsection}{0.5em}{}{}
+    \titleformat{\subsubsection}[hang]{\fHei}%
+        {(\arabic{subsubsection})}{0.5em}{}{}
+    \titlespacing{\chapter}{0pt}{15.2pt}{14.4pt}
+    \titlespacing{\section}{0pt}{-3pt}{2pt}
+    \titlespacing{\subsection}{0pt}{-2.5pt}{-2.5pt}
+    \titlespacing{\subsubsection}{0pt}{0.25em}{0pt}
+\else                                                       % 硕博论文章节格式
+    \titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter  %
+        \sffamily\fHei}{\sffamily\fHei\sSanhao{\chaptertitlename}}{20pt}{\sSanhao}%
+    \titleformat{\section}[hang]{\sffamily\fHei\sSihao}{%       %
+        \sffamily\fHei\sSihao\thesection}{0.5em}{}{}            %
+    \titleformat{\subsection}[hang]{\sffamily\fHei\sHgXiaosi}{% %
+        \sffamily\fHei\sHgXiaosi\thesubsection}{0.5em}{}{}      %
+    \titleformat{\subsubsection}[hang]{\sffamily\fHei}{%        % 小标题: (4) 标题
+        (\arabic{subsubsection})}{0.5em}{}{}                    %
+    \titlespacing{\chapter}{0pt}{-2pt}{14pt}                    % 缩小标题之间缩进
+    \titlespacing{\section}{0pt}{7pt}{0em}                      %
+    \titlespacing{\subsection}{0pt}{6.5pt}{0em}                 %
+    \titlespacing{\subsubsection}{0pt}{0.25em}{0pt}             %
+    \titlespacing{\paragraph}{0pt}{0.25em}{0pt}                 %
+\fi
 \dottedcontents{section}[1.16cm]{}{1.8em}{5pt}              % 定义目录中各级标题
 \dottedcontents{subsection}[2.00cm]{}{2.7em}{5pt}           % 之间的格式以及缩进
 \dottedcontents{subsubsection}[2.86cm]{}{3.4em}{5pt}        %
-\newcommand{\nwpu@chs@chaptercname}[1]{第 #1 章}            % 目录章节中文标题
+\newcommand{\nwpu@chs@chaptercname}[1]{第 #1 章}            % 目录章节中文标题（硕博）
 \newcommand{\nwpu@eng@chaptercname}[1]{Chapter #1}          % 目录章节英文标题
-\if@npu@lang@chs                                            % 中文本地化显示
+\if@npu@type@bcl                                            % 本科论文目录章节格式
+    \newcommand{\nwpu@bcl@chaptercname}[1]{第\CJKnumber{#1}章}% 本科目录章节中文标题
+    \titlecontents{chapter}[0pt]{\sXiaosi\fHei\bf\vspace{0.5em}}%
+        {\contentsmargin{0pt}\sXiaosi\fHei\bf\makebox[0pt][l]{\nwpu@bcl@chaptercname{\thecontentslabel}}\hspace{3.8em}}%
+        {\contentsmargin{0pt}\sXiaosi\fHei\bf}%
+        {\titlerule*[.5pc]{.}\contentspage}[\vspace{0em}]
+\else\if@npu@lang@chs                                       % 硕博中文本地化显示
     \titlecontents{chapter}[0pt]{\fSong\sLgXiaosi\vspace{   %
             0.5em}}{\contentsmargin{0pt}\fSong\makebox[0pt  %
         ][l]{\nwpu@chs@chaptercname{\thecontentslabel}}\hspace{%
             3.5em}}{\contentsmargin{0pt}\fSong}{\titlerule*[%
             .5pc]{.}\contentspage}[\vspace{0em}]            %
-\else                                                       %
+\else                                                       % 硕博英文
     \newlength{\contents@titlewidth}                        %
     \newlength{\contents@appendixwidth}                     %
     \settowidth{\contents@titlewidth}{\sLgXiaosi Chapter 000}%
@@ -362,7 +411,7 @@
         ][l]{\nwpu@eng@chaptercname{\thecontentslabel}}\hspace{%
             \contents@titlewidth}}{\contentsmargin{0pt}\fSong}{
         \titlerule*[.5pc]{.}\contentspage}[\vspace{0em}]    %
-\fi                                                         %
+\fi\fi                                                      %
 %%-----------------------------------------------------------------------------%
 \RequirePackage{fancyhdr}                                   % 页眉设置
 \RequirePackage{fancyref}                                   %
@@ -372,26 +421,42 @@
     \rule[.5\baselineskip]{\headwidth}{0.6pt}               %
     \vspace{-.8\baselineskip}                               %
 }                                                           %
+\newcommand{\npu@bcl@headrule}{                             % 本科页眉线
+    \makebox[0pt][l]{\rule[.7\baselineskip]{\headwidth}{0.8pt}}%
+    \vskip-.8\baselineskip                                  %
+}                                                           %
 \renewcommand{\headrule}{                                   %
     \if@fancyplain\let\headrulewidth\plainheadrulewidth\fi  %
-    \npu@headrule                                           %
+    \if@npu@type@bcl                                        % 本科页眉线
+        \npu@bcl@headrule                                   %
+    \else                                                   % 硕博页眉线
+        \npu@headrule                                       %
+    \fi                                                     %
 }                                                           %
-\if@npu@lang@chs                                            % 中英文章节页眉设置
-    \renewcommand{\chaptermark}[1]{                         %
-        \markboth{\nwpu@chs@chaptercname\thechapter~~ #1}{}}%
-\else                                                       %
-    \renewcommand{\chaptermark}[1]{                         %
-        \markboth{\nwpu@eng@chaptercname\thechapter~~ #1}{}}%
-\fi                                                         %
-\pagestyle{fancyplain}                                      % 新增版式 fancyplain
-\fancyhf{}                                                  % 清空原有页眉页脚
-\fancyfoot[C, C]{\sXiaowu{\thepage}}                        % 页脚中央显示页码
-\fancyhead{}                                                % 页眉清除原有设置
-\fancyhead[COH]{\sXiaowu{\leftmark}}                        %
-\if@npu@lang@chs                                            % 中文论文环境
-    \fancyhead[CEH]{\sXiaowu{\nwpu@chs@header}}             %
-\else                                                       % 英文论文环境
-    \fancyhead[CEH]{\sXiaowu{\nwpu@eng@header}}             %
+\if@npu@type@bcl                                            % 本科论文页眉设置
+    \pagestyle{fancyplain}                                  % 新增版式 fancyplain
+    \fancyhf{}                                              % 清空原有页眉页脚
+    \fancyfoot[C,C]{\sXiaowu~\thepage~}                     % 页脚中央显示页码
+    \chead{\sSanhao\raisebox{0.04cm}{%                      % 页眉居中
+        　\fNWPU 西北工业大学} \fSong{{\textbf{本科毕业设计（论文）}　}}}%
+\else                                                       % 硕博论文页眉设置
+    \if@npu@lang@chs                                        % 中英文章节页眉设置
+        \renewcommand{\chaptermark}[1]{                     %
+            \markboth{\nwpu@chs@chaptercname\thechapter~~ #1}{}}%
+    \else                                                   %
+        \renewcommand{\chaptermark}[1]{                     %
+            \markboth{\nwpu@eng@chaptercname\thechapter~~ #1}{}}%
+    \fi                                                     %
+    \pagestyle{fancyplain}                                  % 新增版式 fancyplain
+    \fancyhf{}                                              % 清空原有页眉页脚
+    \fancyfoot[C, C]{\sXiaowu{\thepage}}                    % 页脚中央显示页码
+    \fancyhead{}                                            % 页眉清除原有设置
+    \fancyhead[COH]{\sXiaowu{\leftmark}}                    %
+    \if@npu@lang@chs                                        % 中文论文环境
+        \fancyhead[CEH]{\sXiaowu{\nwpu@chs@header}}         %
+    \else                                                   % 英文论文环境
+        \fancyhead[CEH]{\sXiaowu{\nwpu@eng@header}}         %
+    \fi                                                     %
 \fi                                                         %
 %%-----------------------------------------------------------------------------%
 \RequirePackage[numbers, sort&compress]{natbib}             % 参考文献
@@ -532,9 +597,15 @@
     \renewcommand{\tablename}{表}                           %
     \renewcommand{\tableautorefname}{表}                    %
     \renewcommand{\bibname}{参考文献}                       %
-    \renewcommand{\contentsname}{目{\quad}录}               %
-    \renewcommand{\listfigurename}{图目录}                  %
-    \renewcommand{\listtablename}{表目录}                   %
+    \if@npu@type@bcl                                        % 本科论文目录标题
+        \renewcommand{\contentsname}{\bfseries 目~录}       %
+        \renewcommand{\listfigurename}{插图列表}            %
+        \renewcommand{\listtablename}{表格列表}             %
+    \else                                                   % 硕博论文目录标题
+        \renewcommand{\contentsname}{目{\quad}录}           %
+        \renewcommand{\listfigurename}{图目录}              %
+        \renewcommand{\listtablename}{表目录}               %
+    \fi
     \renewcommand{\appendixautorefname}{附录}               %
     \def\equationautorefname#1#2\null{式#1(#2\null)}        %
     \def\sectionautorefname#1#2\null{#2\null{ }节}          %
@@ -608,11 +679,21 @@
 
 %%-----------------------------------------------------------------------------%
 \if@npu@lang@chs                                            % 定制中文特殊页面
-    \newcommand{\nwpu@page@ack}{致{\quad}谢}                %
+    \if@npu@type@bcl                                        % 本科致谢标题
+        \newcommand{\nwpu@page@ack}{致~~谢}                  %
+    \else                                                   % 硕博致谢标题
+        \newcommand{\nwpu@page@ack}{致{\quad}谢}             %
+    \fi
+    \if@npu@type@bcl                                        % 本科致谢标题
+        \newcommand{\nwpu@page@app}{附~~录}                  %
+    \else                                                   % 硕博致谢标题
+        \newcommand{\nwpu@page@app}{附{\quad}录}             %
+    \fi
     \newcommand{\nwpu@page@acp}{在学期间取得的学术成果和参加%
         科研情况}                                           %
 \else                                                       % 定制英文特殊页面
     \newcommand{\nwpu@page@ack}{Acknowledgements}           %
+    \newcommand{\nwpu@page@app}{Appendix}                   %
     \newcommand{\nwpu@page@acp}{Published Papers and        %
         Participated in Scientific Research During the Study%
         for \nwpu@eng@degree Degree}                        %
@@ -721,10 +802,14 @@
                     \if@npu@type@phd
                         \includegraphics[width=\paperwidth,height=\paperheight]{博士论文封面.jpg}
                     \else
-                        \if@npu@academic
-                            \includegraphics[width=\paperwidth,height=\paperheight]{学硕论文封面.jpg}
+                        \if@npu@type@bcl
+                            \includegraphics[width=\paperwidth,height=\paperheight]{本科论文封面.jpg}
                         \else
-                            \includegraphics[width=\paperwidth,height=\paperheight]{专硕论文封面.jpg}
+                            \if@npu@academic
+                                \includegraphics[width=\paperwidth,height=\paperheight]{学硕论文封面.jpg}
+                            \else
+                                \includegraphics[width=\paperwidth,height=\paperheight]{专硕论文封面.jpg}
+                            \fi
                         \fi
                     \fi
                 };
@@ -874,14 +959,57 @@
     \thispagestyle{empty} \cleardoublepage                  %
 }                                                           %
 %%-----------------------------------------------------------------------------%
+%% 本科封面
+%%-----------------------------------------------------------------------------%
+\newcommand{\make@nwpu@bachelor@cover}{                       % 设置本科封面
+    \thispagestyle{empty}                                   % 清空页面格式
+    \begin{titlepage}                                       %
+        \voffset 2.7cm                                      %
+        \begin{center}                                      %
+            % 校徽和校名
+            \begin{center}                                  %
+                \begin{minipage}[c]{2.64cm}                 %
+                    \centering                              %
+                    \resizebox{!}{0.9cm}{ \parbox{0.54cm}{ \IfFileExists{figures/logo.tex}{\input{figures/logo}}{\input{logo}} } } %
+                \end{minipage}                              %
+                \hskip 0.8cm                                %
+                \begin{minipage}[c]{8cm}                    %
+                    \fontsize{33}{33}\selectfont\fNWPU 西北工业大学 %
+                \end{minipage}                              %
+            \end{center}                                    %
+            \vskip 0.7cm                                    %
+            \sChuhao\fSong {\bfseries 本科毕业设计（论文）}   %
+            \vskip 5cm                                      %
+            {                                               %
+                \sSanhao\fHei 题~~目 \hspace{0.2cm}\coverunderline[12.5cm]{\nwpu@chs@title} %
+            }                                               %
+            \vskip 2cm                                      %
+            {                                               %
+                \sSihao\fSong 专业名称\coverunderline[5.5cm]{\nwpu@chs@major} %
+                \vskip 0.7cm                                %
+                \sSihao\fSong 学生姓名\coverunderline[5.5cm]{\nwpu@chs@author} %
+                \vskip 0.7cm                                %
+                \sSihao\fSong 指导教师\coverunderline[5.5cm]{\nwpu@chs@advisor} %
+                \vskip 0.7cm                                %
+                \sSihao\fSong 毕业时间\coverunderline[5.5cm]{\nwpu@chs@date} %
+                \vfill                                      %
+            }                                               %
+        \end{center}                                        %
+    \end{titlepage} \fSong \normalsize \newpage \clearpage  %
+}                                                           %
+%%-----------------------------------------------------------------------------%
 %% 生成标题页
 %%-----------------------------------------------------------------------------%
 \renewcommand{\maketitle}{
     \hbadness=10000
     \vbadness=10000
-    \make@nwpu@coverpage                                    % 封皮页
-    \make@nwpu@chs@title                                    % 中文内封
-    \make@nwpu@eng@title                                    % 英文内封
+    \if@npu@type@bcl                                        % 本科封面
+        \make@nwpu@bachelor@cover                           %
+    \else                                                   % 硕博封面
+        \make@nwpu@coverpage                                % 封皮页
+        \make@nwpu@chs@title                                % 中文内封
+        \make@nwpu@eng@title                                % 英文内封
+    \fi
 }                                                           %
 %%-----------------------------------------------------------------------------%
 %% 彩色封底
@@ -895,10 +1023,14 @@
                 \if@npu@type@phd
                     \includegraphics[width=\paperwidth,height=\paperheight]{博士论文封底.jpg}
                 \else
-                    \if@npu@academic
-                        \includegraphics[width=\paperwidth,height=\paperheight]{学硕论文封底.jpg}
+                    \if@npu@type@bcl
+                        \includegraphics[width=\paperwidth,height=\paperheight]{本科论文封底.jpg}
                     \else
-                        \includegraphics[width=\paperwidth,height=\paperheight]{专硕论文封底.jpg}
+                        \if@npu@academic
+                            \includegraphics[width=\paperwidth,height=\paperheight]{学硕论文封底.jpg}
+                        \else
+                            \includegraphics[width=\paperwidth,height=\paperheight]{专硕论文封底.jpg}
+                        \fi
                     \fi
                 \fi
             };
@@ -919,7 +1051,22 @@
 \newcommand{\npu@text}[1]{\relax\sDefault{#1}}
 \newcommand{\expert}[3]{\npu@text{#1} & \npu@text{#2} & \npu@text{#3} \\ }
 \newcommand{\expertBlindReview}{\expert{全盲评阅}{无}{无}}
-\newcommand{\fullBlindReview}[1]{\npu@replicate{#1}{\expertBlindReview}}
+\newcommand{\expertEmpty}{\expert{}{}{}}
+\newcommand{\fullBlindReview}[1]{%
+    \ifcase#1\or
+        \expertBlindReview\expertEmpty\expertEmpty\expertEmpty\expertEmpty
+    \or
+        \expertBlindReview\expertBlindReview\expertEmpty\expertEmpty\expertEmpty
+    \or
+        \expertBlindReview\expertBlindReview\expertBlindReview\expertEmpty\expertEmpty
+    \or
+        \expertBlindReview\expertBlindReview\expertBlindReview\expertBlindReview\expertEmpty
+    \or
+        \expertBlindReview\expertBlindReview\expertBlindReview\expertBlindReview\expertBlindReview
+    \else
+        \npu@replicate{#1}{\expertBlindReview}%
+    \fi
+}
 \newcommand{\defenseDate}[1]{\sDefault\textbf{答辩日期}%
     & \multicolumn{3}{c}{\sDefault{#1}} \\ }
 \newcommand{\defenseChair}[3]{\sDefault\textbf{主席} & \expert{#1}{#2}{#3} }
@@ -942,7 +1089,7 @@
     \fSong \sDefault \vspace{\baselineskip}                 %
     \fSong \sSihao \vspace{0.3\baselineskip}                %
     \fHei \sSihao {学位论文评阅人名单} \par                 %
-    \fSong \sSihao \vspace{0.3\baselineskip}                %
+    \fSong \sSihao \vspace{0.1\baselineskip}                %
     \let\oldarraystretch=\arraystretch                      %
     \renewcommand{\arraystretch}{2.10}                      %
     \setlength{\tabcolsep}{2pt}                             %
@@ -956,7 +1103,7 @@
     \fSong \sDefault \vspace{\baselineskip}                 %
     \fSong \sSihao \vspace{0.3\baselineskip}                %
     \fHei \sSihao {答辩委员会名单} \par                     %
-    \fSong \sSihao \vspace{0.3\baselineskip}                %
+    \fSong \sSihao \vspace{-0.8\baselineskip}                %
     \let\oldarraystretch=\arraystretch                      %
     \renewcommand{\arraystretch}{2.10}                      %
     \setlength{\tabcolsep}{2pt}                             %
@@ -973,27 +1120,59 @@
 \newenvironment{abstract}{                                  %
 \pagenumbering{Roman}                                       % 页码使用大写罗马字母
 \setcounter{page}{1}                                        % 页码从 1 开始
-\renewcommand{\baselinestretch}{1.0}                        % 默认单倍行距
-\newcommand{\sep}{\!；}                                     % 中文关键词间隔符
-\sDefault                                                   %
-\chapter[摘{\quad}要]{摘{\quad}要}                          %
-\markboth{摘{\quad}要}{摘{\quad}要}                         %
+\if@npu@type@bcl                                            % 本科论文摘要格式
+    \renewcommand{\baselinestretch}{1.345}                  % 行距
+    \fontsize{12pt}{14.4pt}\selectfont                      % 小四，1.2倍行距
+    \newcommand{\sep}{，}                                   % 本科：逗号
+    \titleformat{\chapter}[hang]{\normalfont\sSanhao\fHei\filcenter}{\sSanhao}{1em}{\sSanhao}% 三号不加粗
+    \chapter*{摘~~要}                                        %
+    \markboth{中~文~摘~要}{中~文~摘~要}                     %
+\else                                                       % 硕博论文摘要格式
+    \newcommand{\sep}{\!；}                                 % 硕博：分号
+    \renewcommand{\baselinestretch}{1.0}                    % 默认单倍行距
+    \sDefault                                               %
+    \chapter[摘{\quad}要]{摘{\quad}要}                      %
+    \markboth{摘{\quad}要}{摘{\quad}要}                     %
+\fi                                                         %
 }{\vfill\sWuhao\noindent\nwpu@chs@funding\par\cleardoublepage}
 \newenvironment{keywords}{                                  %
-    \vspace{1\baselineskip} \par                            %
-    {\fHei 关键词：}}{}                          %
+    \if@npu@type@bcl                                        % 本科关键词格式
+        \vspace{0.1\baselineskip} \par\noindent{\fHei 关键词：}%
+    \else                                                   % 硕博关键词格式
+        \vspace{1\baselineskip} \par{\fHei 关键词：}         %
+    \fi                                                     %
+}{}                                                         %
 %%-----------------------------------------------------------------------------%
 %% 英文摘要及关键词
 %%-----------------------------------------------------------------------------%
 \newenvironment{engabstract}{                               %
-    \newcommand{\ensep}{\!; }                               % 英文关键词间隔符
-    \sDefault                                               %
-    \chapter[ABSTRACT]{\selectfont\rmfamily\fEng\textbf{Abstract}}%
-    \markboth{Abstract}{ABSTRACT}                           %
-}{\vfill\sWuhao\noindent\nwpu@eng@funding\par\cleardoublepage}
+    \if@npu@type@bcl                                        % 本科论文英文摘要格式
+        \renewcommand{\baselinestretch}{1.2}                % 行距
+        \fontsize{12pt}{14.4pt}\selectfont                  % 小四
+        \newcommand{\ensep}{, }                             % 本科：逗号+空格
+        \titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter}{\sSanhao}{1em}{\sSanhao}% 三号不加粗
+        \chapter*{ABSTRACT}                                 %
+        \markboth{英~文~摘~要}{英~文~摘~要}                 %
+    \else                                                   % 硕博论文英文摘要格式
+        \newcommand{\ensep}{\!; }                           % 硕博：分号+空格
+        \sDefault                                           %
+        \chapter[ABSTRACT]{\selectfont\rmfamily\fEng\textbf{Abstract}}%
+        \markboth{Abstract}{ABSTRACT}                       %
+    \fi                                                     %
+}{%
+    \if@npu@type@bcl                                        % 本科：恢复正文章节格式
+        \titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter\fHei}% 三号黑体不加粗
+            {第\CJKnumber{\thechapter}章}{1em}{\sSanhao}%
+    \fi                                                     %
+    \vfill\sWuhao\noindent\nwpu@eng@funding\par\cleardoublepage%
+}
 \newenvironment{engkeywords}{                               %
-    \vspace{1\baselineskip} \par                            %
-    \noindent \textbf{Key words:}}{}                        %
+    \if@npu@type@bcl                                        % 本科英文关键词格式
+        \vspace{1\baselineskip} \par\noindent \textbf{KEY WORDS:}%
+    \else                                                   % 硕博英文关键词格式
+        \vspace{1\baselineskip} \par\noindent \textbf{Key words:}%
+    \fi                                                     %
+}{}                                                         %
 %%=============================================================================%
 %%=============================================================================%
 %% 目录页
@@ -1059,24 +1238,6 @@
 \renewcommand{\appendix}{                                   % 在原有基础上定制
     \old@appendix                                           %
     \setcounter{chapter}{0}                                 % 重置章节编号
-    \renewcommand{\nwpu@chs@chaptercname}{\nwpu@chs@appendixname}
-    \renewcommand{\nwpu@eng@chaptercname}{\nwpu@eng@appendixname}
-    \if@npu@lang@chs                                        % 中文本地化显示
-        \renewcommand{\appendixname}{附录}                  % 目录
-        \titlecontents{chapter}[0pt]{\fSong\sLgXiaosi\vspace{0.5em}}{%
-            \contentsmargin{0pt}\fSong\makebox[0pt][l]{%    %
-                \nwpu@chs@appendixname{\thecontentslabel}}\hspace{3.5em}}{%
-            \contentsmargin{0pt}\fSong}{\titlerule*[.5pc]{.}%
-            \contentspage}[\vspace{0em}]                    %
-    \else                                                   % 英文使用默认环境
-        \titlecontents{chapter}[0pt]{\fSong\sLgXiaosi\vspace{0.5em}}{%
-            \contentsmargin{0pt}\fSong\makebox[0pt][l]{%    %
-                \nwpu@eng@appendixname{\thecontentslabel}}\hspace{%
-                \contents@appendixwidth}}{\contentsmargin{0pt}\fSong}{%
-            \titlerule*[.5pc]{.}\contentspage}[\vspace{0em}]%
-    \fi                                                     %
-    \titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter\sffamily\fHei}{%
-        \sffamily\fHei\sSanhao{\appendixname~\thechapter}}{20pt}{\sSanhao}
     \renewcommand{\thechapter}{\Alph{chapter}}              %
     \renewcommand{\thesection}{\Alph{chapter}.\arabic{section}}
     \renewcommand{\theequation}{\Alph{chapter}-\arabic{equation}}
@@ -1102,6 +1263,14 @@
     \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}   %
 }{\par \cleardoublepage}                                    %
 %%-----------------------------------------------------------------------------%
+\newenvironment{thesisappendix}{                             % 附录
+    \renewcommand{\baselinestretch}{1.0}                    %
+    \sDefault                                               %
+    \phantomsection\chapter*{\nwpu@page@app}                %
+    \markboth{\nwpu@page@app}{\nwpu@page@app}               %
+    \addcontentsline{toc}{chapter}{\nwpu@page@app}          %
+}{\par \cleardoublepage}                                    %
+%%-----------------------------------------------------------------------------%
 \newenvironment{accomplishments}{                           % 参加科研情况
     \renewcommand{\baselinestretch}{1.0}                    %
     \sDefault                                               %
@@ -1112,6 +1281,14 @@
     \setlength{\oldparindent}{\parindent}                   %
     \setlength{\parindent}{0pt}                             %
 }{\setlength{\parindent}{\oldparindent} \cleardoublepage}   %
+%%-----------------------------------------------------------------------------%
+\newenvironment{designsummary}{                              % 毕业设计小结（本科）
+    \renewcommand{\baselinestretch}{1.0}                    %
+    \sDefault                                               %
+    \phantomsection\chapter*{毕业设计小结}                  %
+    \markboth{毕业设计小结}{毕业设计小结}                   %
+    \addcontentsline{toc}{chapter}{毕业设计小结}            %
+}{\par \cleardoublepage}                                    %
 %%-----------------------------------------------------------------------------%
 \newcommand{\makestatement}{                                % 知识产权与原创性声明
     \hbadness=10000
@@ -1169,13 +1346,3 @@
     \end{titlepage}
 }                                                           %
 %%=============================================================================%
-
-
-%% 
-%% This work consists of the file  nwputhesis.dtx
-%% and the derived files           nwputhesis.ins,
-%%                                 nwputhesis.pdf,
-%%                                 nwputhesis.cls.
-%% 
-%%
-%% End of file `nwputhesis.cls'.
