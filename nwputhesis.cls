@@ -324,12 +324,8 @@
 \newcommand{\fHei}{\CJKfamily{hei}}                         % 黑体: fHei
 \newcommand{\fKai}{\CJKfamily{kai}}                         % 楷体: fKai
 \newcommand{\fFang}{\CJKfamily{fang}}                       % 仿宋: fFang
-\if@npu@type@bcl                                            % 本科论文需要特殊字体和CJKnumb
+\if@npu@type@bcl                                            % 本科论文需要 CJKnumb
     \RequirePackage{CJKnumb}                                % 中文数字
-    \setCJKfamilyfont{nwpu}{nwpuname}                       % 本科校名特殊字体
-    \IfFileExists{figures/nwpuname.ttf}%
-        {\newCJKfontfamily{\fNWPU}[Path=figures/]{nwpuname.ttf}}%
-        {\newCJKfontfamily{\fNWPU}{nwpuname.ttf}}%          % 测试环境备用路径
 \fi
 \XeTeXlinebreaklocale "zh"                                  % 使用中文的换行风格
 \XeTeXlinebreakskip = 0pt plus 1pt                          % 换行逻辑的弹性大小
@@ -432,13 +428,13 @@
     \else                                                   % 硕博页眉线
         \npu@headrule                                       %
     \fi                                                     %
-}                                                           %
+}   
+\graphicspath{{figures/}}                                   % 定义图片文件在 figures 子目录下
 \if@npu@type@bcl                                            % 本科论文页眉设置
     \pagestyle{fancyplain}                                  % 新增版式 fancyplain
     \fancyhf{}                                              % 清空原有页眉页脚
     \fancyfoot[C,C]{\sXiaowu~\thepage~}                     % 页脚中央显示页码
-    \chead{\sSanhao\raisebox{0.04cm}{%                      % 页眉居中
-        　\fNWPU 西北工业大学} \fSong{{\textbf{本科毕业设计（论文）}　}}}%
+    \chead{\includegraphics[scale=0.15]{nwpuheader.png}}% 页眉居中（图片）
 \else                                                       % 硕博论文页眉设置
     \if@npu@lang@chs                                        % 中英文章节页眉设置
         \renewcommand{\chaptermark}[1]{                     %
@@ -470,7 +466,6 @@
 \setlist{nolistsep}                                         % 消除列表间距
 %%-----------------------------------------------------------------------------%
 \RequirePackage{graphicx}                                   % 插图功能
-\graphicspath{{figures/}}                                    % 定义图片文件在 figures 子目录下
 \RequirePackage[final]{pdfpages}                            % 插入其他 pdf 文件
 \RequirePackage{xcolor}                                     % 颜色库
 \RequirePackage{tikz}                                       % tikz 矢量图绘制
@@ -964,26 +959,16 @@
 \newcommand{\make@nwpu@bachelor@cover}{                       % 设置本科封面
     \thispagestyle{empty}                                   % 清空页面格式
     \begin{titlepage}                                       %
-        \voffset 2.7cm                                      %
         \begin{center}                                      %
-            % 校徽和校名
-            \begin{center}                                  %
-                \begin{minipage}[c]{2.64cm}                 %
-                    \centering                              %
-                    \resizebox{!}{0.9cm}{ \parbox{0.54cm}{ \IfFileExists{figures/logo.tex}{\input{figures/logo}}{\input{logo}} } } %
-                \end{minipage}                              %
-                \hskip 0.8cm                                %
-                \begin{minipage}[c]{8cm}                    %
-                    \fontsize{33}{33}\selectfont\fNWPU 西北工业大学 %
-                \end{minipage}                              %
-            \end{center}                                    %
-            \vskip 2cm                                    %
+            \vspace*{2.3cm}                                 %
+            \includegraphics[width=10cm]{nwpulogo.png}%
+            \vskip 1.3cm                                    %
             \sChuhao\fSong {\bfseries 本科毕业设计（论文）}   %
-            \vskip 4.5cm                                      %
+            \vskip 3.5cm                                    %
             {                                               %
                 \sSanhao\fHei 题~~目 \hspace{0.2cm}\coverunderline[8cm]{\nwpu@chs@title} %
             }                                               %
-            \vskip 2cm                                    %
+            \vskip 1.5cm                                    %
             {                                               %
                 \sSihao\fSong 专业名称\coverunderline[5.5cm]{\nwpu@chs@major} %
                 \vskip 1.1cm                                %
