@@ -32,7 +32,7 @@
 ![[编译方式]](figures/example.png)
 
 ### 论文格式设置
-在 `nwputhesis-sample.tex` 文件中，通过 `\documentclass` 的选项来设置论文格式：
+在 `main.tex` 文件中，通过 `\documentclass` 的选项来设置论文格式：
 
 ```latex
 \documentclass[degree=master, academic=true, blindreview=false colorcover=true]{nwputhesis}
@@ -65,7 +65,7 @@
 
 论文插图全部放在 `figures` 目录下，项目已将默认图片路径设为该目录，在 tex 文件中可直接引用文件名，无需添加路径前缀。例如：`\includegraphics{example.png}`。
 
-如需新增章节，请在 `nwputhesis-sample.tex` 中添加新的 `\input{data/chapterX}` 命令。
+如需新增章节，请在 `main.tex` 中添加新的 `\input{data/chapterX}` 命令。
 
 ## 格式说明
 

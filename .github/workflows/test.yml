@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: nwputhesis-pdf
-          path: nwputhesis-sample.pdf
+          path: main.pdf
           retention-days: 30
 
   test:

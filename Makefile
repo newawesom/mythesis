@@ -2,7 +2,7 @@
 # 参考 thuthesis 的 Makefile 结构
 
 PACKAGE = nwputhesis
-SAMPLE  = nwputhesis-sample
+SAMPLE  = main
 
 LATEXMK = latexmk
 SHELL   := /usr/bin/env bash
