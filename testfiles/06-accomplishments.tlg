@@ -12,7 +12,6 @@ Package fontspec Info:
 (fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:script=hani;language=dflt;slant=0.167;mapping=tex-text;"
 Package fontspec Info: 
 (fontspec)             Script 'CJK' not explicitly supported within font 'FandolHei-Regular'. Check the typeset output, and if it is okay then ignore this warning. Otherwise a different font should be chosen.
-\oldparindent=\skip...
 Completed box being shipped out [1]
 \vbox(722.98453+2.70003)x454.106
 .\hbox(0.0+0.0)x0.0
@@ -227,8 +226,8 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 3.35593
-....\hbox(9.444+2.08798)x455.24411, glue set 306.2521fil
-.....\hbox(0.0+0.0)x0.0
+....\hbox(9.444+2.08798)x455.24411, glue set 289.9801fil
+.....\hbox(0.0+0.0)x24.0
 .....\TU/TeXGyreTermes(1)/m/n/12 [1]
 .....\glue 3.0 plus 1.5 minus 1.0
 .....\TU/FandolSong(0)/m/n/12 国
@@ -262,7 +261,6 @@ Completed box being shipped out [1]
 .....\kern -0.00047
 .....\kern -0.18753
 .....\kern 0.18753
-.....\glue 7.728 minus 6.0
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
