@@ -92,6 +92,8 @@ TexPage 模板可能会比 Release 版本滞后，若发现 TexPage 模板不是
 
 如需新增或删除章节，请在 `main.tex` 中添加或删除 `\input{data/chapterX}` 命令。
 
+硕博提交最终版论文时，可直接将签字版声明扫描成电子版 PDF，替换 [声明.pdf](figures/声明.pdf)。
+
 ## 格式说明
 
 ### 字体说明（Windows 用户无需关注）
