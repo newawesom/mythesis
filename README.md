@@ -71,7 +71,7 @@ TexPage 模板可能会比 Release 版本滞后，若发现 TexPage 模板不是
 用户基本只需要修改 `data` 目录和 `ref` 下的文件：
 - `data/abstract.tex`：中英文摘要
 - `data/chapter*.tex`：各章节内容
-- `data/appendix.tex`：附录（可在同一文件中连续使用多个 `thesisappendix` 环境生成附录 A、附录 B）
+- `data/appendix.tex`：附录
 - `data/acknowledgements.tex`：致谢
 - `ref/reference.bib`：参考文献
 
