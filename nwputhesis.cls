@@ -402,14 +402,14 @@
 \if@npu@type@bcl                                            % 本科论文目录章节格式
     \newcommand{\nwpu@bcl@chaptercname}[1]{第\CJKnumber{#1}章}% 本科目录章节中文标题
     \titlecontents{chapter}[0pt]{\sXiaosi\fHei\bf\vspace{0.5em}}%
-    {\contentsmargin{0pt}\sXiaosi\fHei\bf\makebox[0pt][l]{\nwpu@bcl@chaptercname{\thecontentslabel}}\hspace{3.8em}}%
-    {\contentsmargin{0pt}\sXiaosi\fHei\bf}%
+    {\contentsmargin{1em}\sXiaosi\fHei\bf\makebox[0pt][l]{\nwpu@bcl@chaptercname{\thecontentslabel}}\hspace{3.8em}}%
+    {\contentsmargin{1em}\sXiaosi\fHei\bf}%
     {\titlerule*[.5pc]{.}\contentspage}[\vspace{0em}]
 \else\if@npu@lang@chs                                       % 硕博中文本地化显示
         \titlecontents{chapter}[0pt]{\fSong\sLgXiaosi\vspace{   %
-                0.5em}}{\contentsmargin{0pt}\fSong\makebox[0pt  %
+                0.5em}}{\contentsmargin{1em}\fSong\makebox[0pt  %
             ][l]{\nwpu@chs@chaptercname{\thecontentslabel}}\hspace{%
-                3.5em}}{\contentsmargin{0pt}\fSong}{\titlerule*[%
+                3.5em}}{\contentsmargin{1em}\fSong}{\titlerule*[%
                 .5pc]{.}\contentspage}[\vspace{0em}]            %
     \else                                                       % 硕博英文
         \newlength{\contents@titlewidth}                        %
@@ -417,9 +417,9 @@
         \settowidth{\contents@titlewidth}{\sLgXiaosi Chapter 000}%
         \settowidth{\contents@appendixwidth}{\sLgXiaosi Appendix M00}
         \titlecontents{chapter}[0pt]{\fSong\sLgXiaosi\vspace{   %
-                0.5em}}{\contentsmargin{0pt}\fSong\makebox[0pt  %
+                0.5em}}{\contentsmargin{1em}\fSong\makebox[0pt  %
             ][l]{\nwpu@eng@chaptercname{\thecontentslabel}}\hspace{%
-                \contents@titlewidth}}{\contentsmargin{0pt}\fSong}{
+                \contents@titlewidth}}{\contentsmargin{1em}\fSong}{
             \titlerule*[.5pc]{.}\contentspage}[\vspace{0em}]    %
     \fi\fi                                                      %
 %%-----------------------------------------------------------------------------%
@@ -1180,7 +1180,7 @@
     \graduatebodyfont\phantomsection                        %
     % \addcontentsline{toc}{chapter}{\contentsname}           %
     \bookmark[dest=\HyperLocalCurrentHref, level=0]{\contentsname}
-    \old@toc \cleardoublepage                               %
+    {\hfuzz=2pt\old@toc} \cleardoublepage                   %
 }                                                           %
 \let\old@lof\listoffigures                                  % 图目录
 \renewcommand{\listoffigures}{                              %
