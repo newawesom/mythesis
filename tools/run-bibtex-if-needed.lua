@@ -1,8 +1,19 @@
-local doc = arg[1]
-if not doc or doc == "" then
+local raw_doc = arg[1]
+if not raw_doc or raw_doc == "" then
   os.exit(0)
 end
 
+local function normalize_doc(value)
+  local doc = value:gsub("\\", "/")
+  doc = doc:gsub("^%./", "")
+  doc = doc:gsub("/+$", "")
+  doc = doc:gsub("%.tex$", "")
+
+  local name = doc:match("([^/]+)$") or doc
+  return doc, name
+end
+
+local doc, jobname = normalize_doc(raw_doc)
 local aux = doc .. ".aux"
 local bbl = doc .. ".bbl"
 
@@ -48,7 +59,7 @@ if not aux_content:find("\\citation{", 1, true) then
   os.exit(0)
 end
 
-local command = "bibtex " .. shell_quote(doc)
+local command = "bibtex " .. shell_quote(jobname)
 local ok, _, code = os.execute(command)
 if ok == true then
   os.exit(0)

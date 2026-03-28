@@ -1210,10 +1210,6 @@
 %%-----------------------------------------------------------------------------%
 \let\old@bibliography\bibliography                          % 保护原有附录环境
 \renewcommand{\bibliography}[1]{                            %
-    \if@filesw                                               %
-        \immediate\write\@auxout{\string\bibstyle{nputhesis-noslash}}%
-        \immediate\write\@auxout{\string\bibdata{#1}}%
-    \fi                                                      %
     \IfFileExists{\jobname.bbl}{                             %
         \bibliographystyle{nputhesis-noslash}               %
         \phantomsection\addcontentsline{toc}{chapter}{参考文献} %
@@ -1221,7 +1217,12 @@
         \setlength{\bibsep}{0.5ex}                          %
         \setlength{\bibhang}{2em}                           %
         \old@bibliography{#1} \cleardoublepage              %
-    }{}                                                     %
+    }{%
+        \if@filesw                                           %
+            \immediate\write\@auxout{\string\bibstyle{nputhesis-noslash}}%
+            \immediate\write\@auxout{\string\bibdata{#1}}%
+        \fi                                                  %
+    }                                                        %
 }                                                           %
 %%-----------------------------------------------------------------------------%
 \patchcmd{\hyper@makecurrent}{%                             % 附录章节引用补丁
