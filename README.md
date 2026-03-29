@@ -58,11 +58,12 @@ TexPage 模板可能会比 Release 版本滞后，若发现 TexPage 模板不是
 在 `main.tex` 文件中，通过 `\documentclass` 的选项来设置论文格式：
 
 ```latex
-\documentclass[degree=master, academic=true, blindreview=false, colorcover=true]{nwputhesis}
+\documentclass[degree=master, localfonts=false, academic=false, blindreview=false, colorcover=false]{nwputhesis}
 ```
 
 各选项说明：
 - `degree=bachelor|master|phd`：设置学位，`bachelor` 为本科，`master` 为硕士，`phd` 为博士
+- `localfonts=true|false`：是否使用本地 `fonts` 目录字体，`true` 为使用本地字体（适用于无 Windows 字体的系统），`false` 为自动检测系统字体
 
 硕博特有选项：
 - `academic=true|false`：设置学位类型，`true` 为学术型学位，`false` 为专业型学位
@@ -70,7 +71,7 @@ TexPage 模板可能会比 Release 版本滞后，若发现 TexPage 模板不是
 - `colorcover=true|false`：设置是否使用彩色封面和封底，`true` 为彩色（论文最终版提交电子版需要），`false` 为普通版本（用于打印）
 
 ### 文件修改说明
-用户基本只需要修改 `data` 目录和 `ref` 下的文件：
+用户基本只需要修改 `data` 和 `ref` 下的文件：
 - `data/abstract.tex`：中英文摘要
 - `data/chapter*.tex`：各章节内容
 - `data/appendix.tex`：附录
@@ -88,16 +89,11 @@ TexPage 模板可能会比 Release 版本滞后，若发现 TexPage 模板不是
 
 论文插图全部放在 `figures` 目录下，项目已将默认图片路径设为该目录，在 tex 文件中可直接引用文件名，无需添加路径前缀。例如：`\includegraphics{example.png}`。
 
-`main.tex` 中的 `\listoffigures` 和 `\listoftables` 是硕博论文的可选项。学校模板未强制要求图目录和表目录，如果不需要，直接将这两行注释掉即可。附录等其他内容同理。
+`main.tex` 中的 `\listoffigures` 和 `\listoftables` 是硕博论文的可选项。学校模板未强制要求图目录和表目录，如果不需要，直接将这两行注释掉即可,附录等其他内容同理。
 
 如需新增或删除章节，请在 `main.tex` 中添加或删除 `\input{data/chapterX}` 命令。
 
 硕博提交最终版论文时，可直接将签字版声明扫描成电子版 PDF，替换 [声明.pdf](figures/声明.pdf)。
-
-## 格式说明
-
-### 字体说明（Windows 用户无需关注）
-最终版论文建议以 Windows 字体呈现。本模板会自动检测系统中是否安装有 Windows 字体并自动使用，如果未检测到则自动回退到替代字体。建议用户自行安装 [Windows 字体](https://github.com/dolbydu/font/tree/master/unicode)（或者把最终版论文在 Windows 电脑上编译一下）。
 
 ## 推荐项目
 
