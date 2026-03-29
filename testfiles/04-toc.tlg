@@ -136,7 +136,7 @@ Completed box being shipped out [1]
 ....\write-{}
 ....\special{color push gray 0}
 ....\special{pdf:majorversion 1}
-....\special{pdf:minorversion 5}
+....\special{pdf:minorversion 7}
 ....\special{pdf:minorversion 7}
 ....\special{pdf:docview<</OpenAction[@page1/FitH]/PageMode/UseOutlines/ViewerPref\ETC.}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
@@ -172,11 +172,9 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 14.0
 ....\glue 0.0
-....\marks1{\__mark_id:n {1}\MakeUppercase    []{目{\hskip 1em\relax }录}}
-....\marks2{\__mark_id:n {2}\MakeUppercase    []{目{\hskip 1em\relax }录}}
-....\marks3{\__mark_id:n {3}\MakeUppercase    []{目{\hskip 1em\relax }录}}
-....\mark{{\MakeUppercase    []{目{\hskip 1em\relax }录}}{\MakeUppercase    [\ETC
-.}
+....\marks1{\__mark_value:nn {1}{\MakeUppercase    []{目{\hskip 1em\relax }录}}}
+....\marks2{\__mark_value:nn {2}{\MakeUppercase    []{目{\hskip 1em\relax }录}}}
+....\marks3{\__mark_value:nn {3}{\MakeUppercase    []{目{\hskip 1em\relax }录}}}
 ....\penalty 10000
 ....\glue 0.0 plus 0.1
 ....\penalty 10000
@@ -796,15 +794,14 @@ Completed box being shipped out [1]
 .....\special{color pop}
 ...\glue 3.1298
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x455.24411, glue set 609.80716fil
+...\vbox(700.50723+0.0)x455.24411, glue set 604.30716fil
 ....\write-{}
 ....\write-{}
 ....\special{pdf:dest (chapter.3) [@thispage /XYZ @xpos @ypos null]}
 ....\special{pdf:out [-] 1<</Title(\376\377\000F\000i\000r\000s\000t\000\040\000C\\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-....\marks1{\__mark_id:n {4}第 1 章~~ First Chapter}
-....\marks2{\__mark_id:n {5}}
-....\mark{{第 1 章~~ First Chapter}{}}
+....\marks1{\__mark_value:nn {4}{第 1 章~~ First Chapter}}
+....\marks2{\__mark_value:nn {5}{}}
 ....\write1{\@writefile{lof}{\protect \addvspace {10\p@ }}}
 ....\write1{\@writefile{lot}{\protect \addvspace {10\p@ }}}
 ....\glue(\topskip) 11.0
@@ -869,9 +866,10 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
-....\marks2{\__mark_id:n {6}\MakeUppercase    []{1.1. \ Background}}
-....\marks3{\__mark_id:n {7}\MakeUppercase    []{1.1. \ Background}}
-....\mark{{第 1 章~~ First Chapter}{\MakeUppercase    []{1.1. \ Background}}}....\penalty 10000
+....\marks2{\__mark_value:nn {6}{\MakeUppercase    []{1.1. \ Background}}}
+....\penalty 10000
+....\marks3{\__mark_value:nn {7}{\MakeUppercase    []{1.1. \ Background}}}
+....\penalty 10000
 ....\special{pdf:out [-] 2<</Title(\376\377\000B\000a\000c\000k\000g\000r\000o\000\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
 ....\penalty 10000
@@ -910,7 +908,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\glue 0.0
-....\glue -5.5
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 12.09747
@@ -1262,13 +1259,12 @@ Completed box being shipped out [3]
 .....\special{color pop}
 ...\glue 3.1298
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x455.24411, glue set 629.80716fil
+...\vbox(700.50723+0.0)x455.24411, glue set 624.30716fil
 ....\special{pdf:dest (chapter.6) [@thispage /XYZ @xpos @ypos null]}
 ....\special{pdf:out [-] 1<</Title(\376\377\000S\000e\000c\000o\000n\000d\000\040\\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-....\marks1{\__mark_id:n {8}第 2 章~~ Second Chapter}
-....\marks2{\__mark_id:n {9}}
-....\mark{{第 2 章~~ Second Chapter}{}}
+....\marks1{\__mark_value:nn {8}{第 2 章~~ Second Chapter}}
+....\marks2{\__mark_value:nn {9}{}}
 ....\write1{\@writefile{lof}{\protect \addvspace {10\p@ }}}
 ....\write1{\@writefile{lot}{\protect \addvspace {10\p@ }}}
 ....\glue(\topskip) 11.0
@@ -1333,9 +1329,9 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
-....\marks2{\__mark_id:n {10}\MakeUppercase    []{2.1. \ Method}}
-....\marks3{\__mark_id:n {11}\MakeUppercase    []{2.1. \ Method}}
-....\mark{{第 2 章~~ Second Chapter}{\MakeUppercase    []{2.1. \ Method}}}
+....\marks2{\__mark_value:nn {10}{\MakeUppercase    []{2.1. \ Method}}}
+....\penalty 10000
+....\marks3{\__mark_value:nn {11}{\MakeUppercase    []{2.1. \ Method}}}
 ....\penalty 10000
 ....\special{pdf:out [-] 2<</Title(\376\377\000M\000e\000t\000h\000o\000d)/A<</S/G\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
@@ -1344,7 +1340,6 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue 0.0
 ....\glue 0.0
-....\glue -5.5
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 12.09747
