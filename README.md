@@ -26,8 +26,8 @@
 ### 环境说明
 
 #### 本地运行（推荐）
-- 推荐直接下载 [最新 Release 版本](https://github.com/1195343015/nwputhesis/releases/latest) 使用。
-- 支持各种操作系统，推荐在 TeX Live 环境下搭配 VS Code 中的 LaTeX Workshop 插件使用。
+- 推荐直接下载 [最新 Release 版本](https://github.com/1195343015/nwputhesis/releases/latest) 使用，非 Windows 系统用户需要从仓库中自行下载 Windows 字体。
+- 支持各种操作系统，推荐在 TeX Live 最新版本下搭配 VS Code 中的 LaTeX Workshop 插件使用。
 
 #### 在线运行
 推荐使用 [TeXPage 模板](https://www.texpage.com/zh/template/1b72a41e-0d62-430e-8678-d697d89bdb7e/) 在线编辑。（不推荐使用 Overleaf，其免费版基本没法用）
