@@ -132,11 +132,11 @@ Completed box being shipped out [1]
 .....\special{color pop}
 ...\glue 3.1298
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x455.24411, glue set 545.88205fil
+...\vbox(700.50723+0.0)x455.24411, glue set 555.80716fil
 ....\write-{}
 ....\special{color push gray 0}
 ....\special{pdf:majorversion 1}
-....\special{pdf:minorversion 5}
+....\special{pdf:minorversion 7}
 ....\special{pdf:minorversion 7}
 ....\special{pdf:docview<</OpenAction[@page1/FitH]/PageMode/UseOutlines/ViewerPref\ETC.}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
@@ -172,60 +172,56 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 14.0
 ....\glue 0.0
-....\marks1{\__mark_id:n {1}\MakeUppercase    []{目{\hskip 1em\relax }录}}
-....\marks2{\__mark_id:n {2}\MakeUppercase    []{目{\hskip 1em\relax }录}}
-....\marks3{\__mark_id:n {3}\MakeUppercase    []{目{\hskip 1em\relax }录}}
-....\mark{{\MakeUppercase    []{目{\hskip 1em\relax }录}}{\MakeUppercase    [\ETC
-.}
+....\marks1{\__mark_value:nn {1}{\MakeUppercase    []{目{\hskip 1em\relax }录}}}
+....\marks2{\__mark_value:nn {2}{\MakeUppercase    []{目{\hskip 1em\relax }录}}}
+....\marks3{\__mark_value:nn {3}{\MakeUppercase    []{目{\hskip 1em\relax }录}}}
 ....\penalty 10000
 ....\glue 0.0 plus 0.1
 ....\penalty 10000
-....\glue 6.25
-....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 1.0
-....\hbox(9.7125+3.90004)x455.24411, glue set 283.20909fill
+....\hbox(13.29994+5.70006)x455.24411, glue set 287.25163fill
 .....\hbox(0.0+0.0)x0.0
-.....\rule(9.09996+3.90004)x0.0
-.....\hbox(9.7125+2.29999)x0.0, glue set - 37.5fil
-......\TU/FandolSong(1)/m/n/12.5 第
+.....\rule(13.29994+5.70006)x0.0
+.....\hbox(9.324+2.20798)x0.0, glue set - 36.0fil
+......\TU/FandolSong(1)/m/n/12 第
 ......\kern -0.00018
 ......\kern 0.00018
-......\glue 3.125 plus 1.5625 minus 1.04166
-......\TU/TeXGyreTermes(1)/m/n/12.5 1
-......\glue 3.125 plus 1.5625 minus 1.04166
-......\TU/FandolSong(1)/m/n/12.5 章
+......\glue 3.0 plus 1.5 minus 1.0
+......\TU/TeXGyreTermes(1)/m/n/12 1
+......\glue 3.0 plus 1.5 minus 1.0
+......\TU/FandolSong(1)/m/n/12 章
 ......\kern -0.00017
 ......\kern 0.00017
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\glue 43.75
+.....\glue 42.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
-.....\TU/TeXGyreTermes(1)/m/n/12.5 Graduate
-.....\glue 3.125 plus 1.5625 minus 1.04166
-.....\TU/TeXGyreTermes(1)/m/n/12.5 First
-.....\glue 3.125 plus 1.5625 minus 1.04166
-.....\TU/TeXGyreTermes(1)/m/n/12.5 Chapter
+.....\TU/TeXGyreTermes(1)/m/n/12 Graduate
+.....\glue 3.0 plus 1.5 minus 1.0
+.....\TU/TeXGyreTermes(1)/m/n/12 First
+.....\glue 3.0 plus 1.5 minus 1.0
+.....\TU/TeXGyreTermes(1)/m/n/12 Chapter
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
-.....\rule(9.09996+3.90004)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\kern 0.0
-.....\glue -6.0
-.....\glue 3.125
+.....\glue -3.60004
+.....\glue 3.0
 .....\leaders 0.0 plus 1.0fill
-......\hbox(1.25+0.13748)x6.0, glue set 2.875fil
+......\hbox(1.2+0.13199)x3.60004, glue set 0.60004fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\hbox(1.25+0.13748)x3.125
+.......\hbox(1.2+0.13199)x3.0
 ........\special{color push gray 0}
-........\TU/TeXGyreTermes(1)/m/n/12.5 .
+........\TU/TeXGyreTermes(1)/m/n/12 .
 ........\kern -0.0002
 ........\kern 0.0002
 ........\special{color pop}
 .....\kern 0.0
-.....\hbox(8.45+0.0)x16.97252, glue set 10.72252fil
+.....\hbox(8.112+0.0)x16.97252, glue set 10.97252fil
 ......\glue 0.0 plus 1.0fil
-......\TU/TeXGyreTermes(1)/m/n/12.5 1
+......\TU/TeXGyreTermes(1)/m/n/12 1
 ......\kern -0.0002
 ......\kern 0.0002
 .....\rule(*+*)x0.0
@@ -242,11 +238,11 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 2.10002
-....\hbox(13.99994+6.00006)x455.24411, glue set 301.8703fill
+....\glue(\baselineskip) 0.0
+....\hbox(13.29994+5.70006)x455.24411, glue set 299.8703fill
 .....\glue(\leftskip) 33.0053
 .....\hbox(0.0+0.0)x0.0
-.....\rule(13.99994+6.00006)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\rule(*+*)x0.0
 .....\penalty 10000
 .....\glue -21.60004
@@ -263,12 +259,12 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
-.....\rule(13.99994+6.00006)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\kern 0.0
-.....\glue -5.0
+.....\glue -3.0
 .....\glue 3.0
 .....\leaders 0.0 plus 1.0fill
-......\hbox(1.2+0.13199)x5.0, glue set 2.0fil
+......\hbox(1.2+0.13199)x3.0
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\hbox(1.2+0.13199)x3.0
 ........\special{color push gray 0}
@@ -295,10 +291,10 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 0.0
-....\hbox(13.99994+6.00006)x455.24411, glue set 307.05809fill
+....\hbox(13.29994+5.70006)x455.24411, glue set 305.05809fill
 .....\glue(\leftskip) 56.9055
 .....\hbox(0.0+0.0)x0.0
-.....\rule(13.99994+6.00006)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\rule(*+*)x0.0
 .....\penalty 10000
 .....\glue -32.39996
@@ -315,12 +311,12 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
-.....\rule(13.99994+6.00006)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\kern 0.0
-.....\glue -5.0
+.....\glue -3.0
 .....\glue 3.0
 .....\leaders 0.0 plus 1.0fill
-......\hbox(1.2+0.13199)x5.0, glue set 2.0fil
+......\hbox(1.2+0.13199)x3.0
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\hbox(1.2+0.13199)x3.0
 ........\special{color push gray 0}
@@ -344,52 +340,50 @@ Completed box being shipped out [1]
 ....\penalty -300
 ....\glue 0.0 plus 0.1
 ....\penalty 10000
-....\glue 6.25
-....\glue 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\lineskip) 1.0
-....\hbox(9.7125+3.90004)x455.24411, glue set 268.95909fill
+....\glue(\baselineskip) 0.0
+....\hbox(13.29994+5.70006)x455.24411, glue set 273.57162fill
 .....\hbox(0.0+0.0)x0.0
-.....\rule(9.09996+3.90004)x0.0
-.....\hbox(9.7125+2.29999)x0.0, glue set - 37.5fil
-......\TU/FandolSong(1)/m/n/12.5 第
+.....\rule(13.29994+5.70006)x0.0
+.....\hbox(9.324+2.20798)x0.0, glue set - 36.0fil
+......\TU/FandolSong(1)/m/n/12 第
 ......\kern -0.00018
 ......\kern 0.00018
-......\glue 3.125 plus 1.5625 minus 1.04166
-......\TU/TeXGyreTermes(1)/m/n/12.5 2
-......\glue 3.125 plus 1.5625 minus 1.04166
-......\TU/FandolSong(1)/m/n/12.5 章
+......\glue 3.0 plus 1.5 minus 1.0
+......\TU/TeXGyreTermes(1)/m/n/12 2
+......\glue 3.0 plus 1.5 minus 1.0
+......\TU/FandolSong(1)/m/n/12 章
 ......\kern -0.00017
 ......\kern 0.00017
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\glue 43.75
+.....\glue 42.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 0]/H/I/C[1 0 0]/A<</S/G\ETC.}
-.....\TU/TeXGyreTermes(1)/m/n/12.5 Graduate
-.....\glue 3.125 plus 1.5625 minus 1.04166
-.....\TU/TeXGyreTermes(1)/m/n/12.5 Second
-.....\glue 3.125 plus 1.5625 minus 1.04166
-.....\TU/TeXGyreTermes(1)/m/n/12.5 Chapter
+.....\TU/TeXGyreTermes(1)/m/n/12 Graduate
+.....\glue 3.0 plus 1.5 minus 1.0
+.....\TU/TeXGyreTermes(1)/m/n/12 Second
+.....\glue 3.0 plus 1.5 minus 1.0
+.....\TU/TeXGyreTermes(1)/m/n/12 Chapter
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
-.....\rule(9.09996+3.90004)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\kern 0.0
-.....\glue -6.0
-.....\glue 3.125
+.....\glue -3.60004
+.....\glue 3.0
 .....\leaders 0.0 plus 1.0fill
-......\hbox(1.25+0.13748)x6.0, glue set 2.875fil
+......\hbox(1.2+0.13199)x3.60004, glue set 0.60004fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\hbox(1.25+0.13748)x3.125
+.......\hbox(1.2+0.13199)x3.0
 ........\special{color push gray 0}
-........\TU/TeXGyreTermes(1)/m/n/12.5 .
+........\TU/TeXGyreTermes(1)/m/n/12 .
 ........\kern -0.0002
 ........\kern 0.0002
 ........\special{color pop}
 .....\kern 0.0
-.....\hbox(8.45+0.17499)x16.97252, glue set 10.72252fil
+.....\hbox(8.112+0.16798)x16.97252, glue set 10.97252fil
 ......\glue 0.0 plus 1.0fil
-......\TU/TeXGyreTermes(1)/m/n/12.5 3
+......\TU/TeXGyreTermes(1)/m/n/12 3
 ......\kern -0.0002
 ......\kern 0.0002
 .....\rule(*+*)x0.0
@@ -406,11 +400,11 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 2.10002
-....\hbox(13.99994+6.00006)x455.24411, glue set 322.9543fill
+....\glue(\baselineskip) 0.0
+....\hbox(13.29994+5.70006)x455.24411, glue set 320.9543fill
 .....\glue(\leftskip) 33.0053
 .....\hbox(0.0+0.0)x0.0
-.....\rule(13.99994+6.00006)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\rule(*+*)x0.0
 .....\penalty 10000
 .....\glue -21.60004
@@ -427,12 +421,12 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
-.....\rule(13.99994+6.00006)x0.0
+.....\rule(13.29994+5.70006)x0.0
 .....\kern 0.0
-.....\glue -5.0
+.....\glue -3.0
 .....\glue 3.0
 .....\leaders 0.0 plus 1.0fill
-......\hbox(1.2+0.13199)x5.0, glue set 2.0fil
+......\hbox(1.2+0.13199)x3.0
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\hbox(1.2+0.13199)x3.0
 ........\special{color push gray 0}
@@ -808,15 +802,14 @@ Completed box being shipped out [1]
 .....\special{color pop}
 ...\glue 3.1298
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x455.24411, glue set 609.80716fil
+...\vbox(700.50723+0.0)x455.24411, glue set 604.30716fil
 ....\write-{}
 ....\write-{}
 ....\special{pdf:dest (chapter.3) [@thispage /XYZ @xpos @ypos null]}
 ....\special{pdf:out [-] 1<</Title(\376\377\000G\000r\000a\000d\000u\000a\000t\000\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-....\marks1{\__mark_id:n {4}第 1 章~~ Graduate First Chapter}
-....\marks2{\__mark_id:n {5}}
-....\mark{{第 1 章~~ Graduate First Chapter}{}}
+....\marks1{\__mark_value:nn {4}{第 1 章~~ Graduate First Chapter}}
+....\marks2{\__mark_value:nn {5}{}}
 ....\write1{\@writefile{lof}{\protect \addvspace {10\p@ }}}
 ....\write1{\@writefile{lot}{\protect \addvspace {10\p@ }}}
 ....\glue(\topskip) 11.0
@@ -885,10 +878,9 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
-....\marks2{\__mark_id:n {6}\MakeUppercase    []{1.1. \ Graduate Background}}
-....\marks3{\__mark_id:n {7}\MakeUppercase    []{1.1. \ Graduate Background}}
-....\mark{{第 1 章~~ Graduate First Chapter}{\MakeUppercase    []{1.1. \ Grad\ETC
-.}
+....\marks2{\__mark_value:nn {6}{\MakeUppercase    []{1.1. \ Graduate Background}\ETC.}
+....\penalty 10000
+....\marks3{\__mark_value:nn {7}{\MakeUppercase    []{1.1. \ Graduate Background}\ETC.}
 ....\penalty 10000
 ....\special{pdf:out [-] 2<</Title(\376\377\000G\000r\000a\000d\000u\000a\000t\000\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
@@ -930,7 +922,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue 0.0
 ....\glue 0.0
-....\glue -5.5
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 12.09747
@@ -1284,13 +1275,12 @@ Completed box being shipped out [3]
 .....\special{color pop}
 ...\glue 3.1298
 ...\glue(\lineskip) 0.0
-...\vbox(700.50723+0.0)x455.24411, glue set 629.80716fil
+...\vbox(700.50723+0.0)x455.24411, glue set 624.30716fil
 ....\special{pdf:dest (chapter.6) [@thispage /XYZ @xpos @ypos null]}
 ....\special{pdf:out [-] 1<</Title(\376\377\000G\000r\000a\000d\000u\000a\000t\000\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline \ETC.}
-....\marks1{\__mark_id:n {8}第 2 章~~ Graduate Second Chapter}
-....\marks2{\__mark_id:n {9}}
-....\mark{{第 2 章~~ Graduate Second Chapter}{}}
+....\marks1{\__mark_value:nn {8}{第 2 章~~ Graduate Second Chapter}}
+....\marks2{\__mark_value:nn {9}{}}
 ....\write1{\@writefile{lof}{\protect \addvspace {10\p@ }}}
 ....\write1{\@writefile{lot}{\protect \addvspace {10\p@ }}}
 ....\glue(\topskip) 11.0
@@ -1359,10 +1349,9 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
-....\marks2{\__mark_id:n {10}\MakeUppercase    []{2.1. \ Graduate Method}}
-....\marks3{\__mark_id:n {11}\MakeUppercase    []{2.1. \ Graduate Method}}
-....\mark{{第 2 章~~ Graduate Second Chapter}{\MakeUppercase    []{2.1. \ Gra\ETC
-.}
+....\marks2{\__mark_value:nn {10}{\MakeUppercase    []{2.1. \ Graduate Method}}}
+....\penalty 10000
+....\marks3{\__mark_value:nn {11}{\MakeUppercase    []{2.1. \ Graduate Method}}}
 ....\penalty 10000
 ....\special{pdf:out [-] 2<</Title(\376\377\000G\000r\000a\000d\000u\000a\000t\000\ETC.}
 ....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
@@ -1371,7 +1360,6 @@ Completed box being shipped out [3]
 ....\penalty 10000
 ....\glue 0.0
 ....\glue 0.0
-....\glue -5.5
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 12.09747
