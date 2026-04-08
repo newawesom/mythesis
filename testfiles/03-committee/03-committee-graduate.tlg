@@ -612,15 +612,15 @@ Completed box being shipped out [1]
 .........\glue 2.0
 .........\glue 0.0 plus 1.0fil
 .........\glue 0.00002
-.........\TU/TeXGyreTermes(0)/m/n/12 20XX
+.........\TU/TeXGyreTermes(1)/m/n/12 20XX
 .........\glue 3.0 plus 1.49849 minus 1.00099
 .........\TU/FandolSong(1)/m/n/12 年
 .........\glue 3.0 plus 1.49849 minus 1.00099
-.........\TU/TeXGyreTermes(0)/m/n/12 X
+.........\TU/TeXGyreTermes(1)/m/n/12 X
 .........\glue 3.0 plus 1.49849 minus 1.00099
 .........\TU/FandolSong(1)/m/n/12 月
 .........\glue 3.0 plus 1.49849 minus 1.00099
-.........\TU/TeXGyreTermes(0)/m/n/12 X
+.........\TU/TeXGyreTermes(1)/m/n/12 X
 .........\glue 3.0 plus 1.49849 minus 1.00099
 .........\TU/FandolSong(1)/m/n/12 日
 .........\kern -0.00017
@@ -769,7 +769,7 @@ Completed box being shipped out [1]
 ...........\hbox(0.0+0.0)x0.0
 ...........\rule(18.5219+*)x0.0
 ...........\glue 0.0
-...........\TU/TeXGyreTermes(0)/m/n/12 XXX
+...........\TU/TeXGyreTermes(1)/m/n/12 XXX
 ...........\kern -0.0002
 ...........\kern 0.0002
 ...........\penalty 10000
@@ -864,7 +864,7 @@ Completed box being shipped out [1]
 ...........\hbox(0.0+0.0)x0.0
 ...........\rule(18.5219+*)x0.0
 ...........\glue 0.0
-...........\TU/TeXGyreTermes(0)/m/n/12 XXX
+...........\TU/TeXGyreTermes(1)/m/n/12 XXX
 ...........\kern -0.0002
 ...........\kern 0.0002
 ...........\penalty 10000
@@ -959,7 +959,7 @@ Completed box being shipped out [1]
 ...........\hbox(0.0+0.0)x0.0
 ...........\rule(18.5219+*)x0.0
 ...........\glue 0.0
-...........\TU/TeXGyreTermes(0)/m/n/12 XXX
+...........\TU/TeXGyreTermes(1)/m/n/12 XXX
 ...........\kern -0.0002
 ...........\kern 0.0002
 ...........\penalty 10000
@@ -1054,7 +1054,7 @@ Completed box being shipped out [1]
 ...........\hbox(0.0+0.0)x0.0
 ...........\rule(18.5219+*)x0.0
 ...........\glue 0.0
-...........\TU/TeXGyreTermes(0)/m/n/12 XXX
+...........\TU/TeXGyreTermes(1)/m/n/12 XXX
 ...........\kern -0.0002
 ...........\kern 0.0002
 ...........\penalty 10000
@@ -1149,7 +1149,7 @@ Completed box being shipped out [1]
 ...........\hbox(0.0+0.0)x0.0
 ...........\rule(18.5219+*)x0.0
 ...........\glue 0.0
-...........\TU/TeXGyreTermes(0)/m/n/12 XXX
+...........\TU/TeXGyreTermes(1)/m/n/12 XXX
 ...........\kern -0.0002
 ...........\kern 0.0002
 ...........\penalty 10000
@@ -1244,7 +1244,7 @@ Completed box being shipped out [1]
 ...........\hbox(0.0+0.0)x0.0
 ...........\rule(18.5219+*)x0.0
 ...........\glue 0.0
-...........\TU/TeXGyreTermes(0)/m/n/12 XXX
+...........\TU/TeXGyreTermes(1)/m/n/12 XXX
 ...........\kern -0.0002
 ...........\kern 0.0002
 ...........\penalty 10000
