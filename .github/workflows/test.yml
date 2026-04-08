@@ -25,7 +25,7 @@ env:
   REQUIRED_PKGS: >-
     algorithmicx algorithms appendix bookmark catchfile enumitem fancyhdr fancyref
     float ifplatform koma-script makecell multirow nomencl ntheorem pdfpages
-    pgf ragged2e setspace silence subcaption texlive-scripts-extra titlesec
+    pgf ragged2e setspace silence texlive-scripts-extra titlesec
     xcolor xkeyval xstring
   FONT_PKGS: fandol tex-gyre dejavu
 
