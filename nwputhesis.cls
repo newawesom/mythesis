@@ -1144,7 +1144,7 @@
     \fSong \sDefault \vspace{\baselineskip}                 %
     \fSong \sSihao \vspace{0.3\baselineskip}                %
     \fHei \sSihao {学位论文评阅人名单} \par                 %
-    \fSong \sSihao \vspace{0.1\baselineskip}                %
+    \fSong \sSihao \vspace{0.2\baselineskip}                %
     \let\oldarraystretch=\arraystretch                      %
     \renewcommand{\arraystretch}{2.10}                      %
     \setlength{\tabcolsep}{2pt}                             %
