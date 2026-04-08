@@ -18,20 +18,15 @@ on:
   workflow_dispatch:
 
 env:
-  XECJK_PKGS: fontspec xecjk ulem
+  CORE_PKGS: scheme-basic collection-latex collection-latexrecommended collection-latexextra
+  XECJK_PKGS: collection-xetex collection-langchinese xecjk ulem
   BIB_PKGS: biblatex biblatex-gb7714-2015 biber
   BIN_PKGS: latexmk l3build
   REQUIRED_PKGS: >-
-    xkeyval etoolbox amsmath amssymb
-    geometry hyperref bookmark type1cm
-    silence ifplatform catchfile indentfirst
-    titlesec titletoc fancyhdr fancyref
-    enumerate enumitem graphicx pdfpages xcolor
-    caption subcaption wrapfig multirow makecell
-    longtable booktabs tabularx setspace ragged2e
-    ntheorem listings appendix nomencl multicol tocbasic xstring
-    algorithms algorithmicx algorithm float
-  TIKZ_PKGS: pgf tikz
+    algorithmicx algorithms appendix bookmark catchfile enumitem fancyhdr fancyref
+    float ifplatform koma-script makecell multirow nomencl ntheorem pdfpages
+    pgf ragged2e setspace silence subcaption texlive-scripts-extra titlesec
+    xcolor xkeyval xstring
   FONT_PKGS: fandol tex-gyre dejavu
 
 jobs:
@@ -48,8 +43,8 @@ jobs:
         uses: zauguin/install-texlive@v4
         with:
           packages: >-
-            ${{ env.XECJK_PKGS }} ${{ env.BIB_PKGS }}
-            ${{ env.REQUIRED_PKGS }} ${{ env.TIKZ_PKGS }} ${{ env.FONT_PKGS }}
+            ${{ env.CORE_PKGS }} ${{ env.XECJK_PKGS }} ${{ env.BIB_PKGS }}
+            ${{ env.REQUIRED_PKGS }} ${{ env.FONT_PKGS }}
             ${{ env.BIN_PKGS }}
           texlive_version: 2026
 
@@ -77,8 +72,8 @@ jobs:
         uses: zauguin/install-texlive@v4
         with:
           packages: >-
-            ${{ env.XECJK_PKGS }} ${{ env.BIB_PKGS }}
-            ${{ env.REQUIRED_PKGS }} ${{ env.TIKZ_PKGS }} ${{ env.FONT_PKGS }}
+            ${{ env.CORE_PKGS }} ${{ env.XECJK_PKGS }} ${{ env.BIB_PKGS }}
+            ${{ env.REQUIRED_PKGS }} ${{ env.FONT_PKGS }}
             ${{ env.BIN_PKGS }}
           texlive_version: 2026
 
