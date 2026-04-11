@@ -22,8 +22,8 @@
 ]{nwputhesis}
 
 % 个人信息设置
-\ifbachelor{\input{data/undergraduate/info}}{\input{data/graduate/info}}
-\addbibresource{ref/reference.bib}
+\ifbachelor{\input{content/thesis/undergraduate/info}}{\input{content/thesis/graduate/info}}
+\addbibresource{content/references/reference.bib}
 
 \begin{document}
 
@@ -33,10 +33,10 @@
 \maketitle
 
 % 答辩委员会（仅硕博）
-\ifgraduate{\input{data/graduate/committee}}{}
+\ifgraduate{\input{content/thesis/graduate/committee}}{}
 
 % 摘要
-\ifbachelor{\input{data/undergraduate/abstract}}{\input{data/graduate/abstract}}
+\ifbachelor{\input{content/thesis/undergraduate/abstract}}{\input{content/thesis/graduate/abstract}}
 
 % 目录
 \tableofcontents
@@ -51,32 +51,32 @@
 
 % 各章节
 \ifbachelor{
-    \input{data/undergraduate/chapters}
+    \input{content/thesis/undergraduate/chapters}
 }{
-    \input{data/graduate/chapters}
+    \input{content/thesis/graduate/chapters}
 }
 
 % 参考文献
 \printbibliography
 
 % 附录（研究生在致谢之前）
-\ifgraduate{\input{data/graduate/appendix}}{}
+\ifgraduate{\input{content/thesis/graduate/appendix}}{}
 
 \backmatter
 
 % 致谢
-\ifbachelor{\input{data/undergraduate/acknowledgements}}{\input{data/graduate/acknowledgements}}
+\ifbachelor{\input{content/thesis/undergraduate/acknowledgements}}{\input{content/thesis/graduate/acknowledgements}}
 
 % 毕业设计小结（仅本科）
-\ifbachelor{\input{data/undergraduate/designsummary}}{}
+\ifbachelor{\input{content/thesis/undergraduate/designsummary}}{}
 
 % 附录（仅本科，在致谢之后）
-\ifbachelor{\input{data/undergraduate/appendix}}{}
+\ifbachelor{\input{content/thesis/undergraduate/appendix}}{}
 
 % 参加科研情况（仅硕博）
-\ifgraduate{\input{data/graduate/accomplishments}}{}
+\ifgraduate{\input{content/thesis/graduate/accomplishments}}{}
 
 % 知识产权与原创性声明（仅硕博）
-\ifgraduate{\includepdf[pages=-]{figures/声明.pdf}}{}
+\ifgraduate{\includepdf[pages=-]{content/figures/声明.pdf}}{}
 
 \end{document}

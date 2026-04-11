@@ -3,7 +3,7 @@
 [![Test](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml/badge.svg)](https://github.com/1195343015/nwputhesis/actions/workflows/test.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-> 模板升级时，用户通常不需要改动已填写好的 `data` 、`figures` 和 `ref` 内容，只需要替换其他文件即可，如有特殊情况会在 Releases 页面说明。
+> 模板升级时，用户通常不需要改动已填写好的 `content` 内容，只需要替换其他文件即可，如有特殊情况会在 Releases 页面说明。
 
 本模板已成功通过学校的论文最终版提交（26届硕士），是截至目前（26年4月）已知所有西北工业大学硕博学位论文 LaTeX 模板中最新最完善的，现已添加本科毕业设计论文支持。（本模板并非学校官方提供模板）
 
@@ -23,7 +23,7 @@
 - **Recipe: xelatex (fast)**：快速编译，在不修改参考文献时使用
 - 推荐平常使用第二种方式即可，只在添加参考文献时使用第一种方式
 
-![[编译方式]](figures/example.png)
+![[编译方式]](content/figures/example.png)
 
 ### 论文格式设置
 推荐直接编译对应的入口文件：
@@ -36,18 +36,22 @@
 如需调整编译选项，请修改 `thesis-setup.tex`，各选项的具体作用已经写在 `thesis-setup.tex` 的注释中。
 
 ### 文件修改说明
-用户基本只需要修改 `data` 和 `ref` 下的文件：
-- `ref/reference.bib`：参考文献
+用户基本只需要修改 `content/` 下的文件：
+- `content/references/reference.bib`：参考文献
 
 #### 研究生论文（硕士/博士）
-- `data/graduate/`：研究生论文相关内容，包括个人信息、摘要、正文各章节、附录、致谢、答辩委员会和科研情况等
+- `content/thesis/graduate/`：研究生论文相关内容，包括个人信息、摘要、正文各章节、附录、致谢、答辩委员会和科研情况等
+- `content/thesis/graduate/chapters.tex`：研究生正文章节清单，用于新增或删除章节
 
 #### 本科毕业设计论文
-- `data/undergraduate/`：本科毕业设计论文相关内容，包括个人信息、摘要、正文各章节、附录、致谢和毕业设计小结等
+- `content/thesis/undergraduate/`：本科毕业设计论文相关内容，包括个人信息、摘要、正文各章节、附录、致谢和毕业设计小结等
+- `content/thesis/undergraduate/chapters.tex`：本科正文章节清单，用于新增或删除章节
 
-论文插图全部放在 `figures` 目录下，项目已将默认图片路径设为该目录，在 tex 文件中可直接引用文件名，无需添加路径前缀。例如：`\includegraphics{example.png}`。
+论文插图全部放在 `content/figures` 目录下，项目已将默认图片路径设为该目录，在 tex 文件中可直接引用文件名，无需添加路径前缀。例如：`\includegraphics{example.png}`。
 
-硕博提交最终版论文时，可直接将签字版声明扫描成电子版 PDF，替换 [声明.pdf](figures/声明.pdf)。
+如需新增或删除章节，请在对应的 `content/thesis/graduate/chapters.tex` 或 `content/thesis/undergraduate/chapters.tex` 中添加或删除 `\input{...}` 命令，无需修改 `thesis-main.tex`。
+
+硕博提交最终版论文时，可直接将签字版声明扫描成电子版 PDF，替换 [声明.pdf](content/figures/声明.pdf)。
 
 ### LaTeX 新手指南
 [清华大学 thuthesis 提供的新手指南](https://github.com/tuna/thuthesis/wiki/%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97)（对本项目同样适用）
