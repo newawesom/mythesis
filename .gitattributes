@@ -29,6 +29,8 @@ Makefile text eol=lf
 .github/ export-ignore
 .gitignore export-ignore
 .gitattributes export-ignore
+.gitmodules export-ignore
+fonts/ export-ignore
 
 # Docs
 CONTRIBUTING.md export-ignore
