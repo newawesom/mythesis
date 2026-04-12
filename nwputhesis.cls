@@ -227,68 +227,105 @@
     \renewcommand\codeFont{Consolas}%
     \@npu@font@localtrue
 }
-\newcommand{\npu@fallback@fonts}{%
-    \iflinux
-        % Linux: 检测 Noto 字体，没有则 fallback 到 fandol
-        \IfFontExistsTF{Noto Serif CJK SC}{%
+\newcommand{\npu@set@windows@fonts}{%
+    \typeout{[nwputhesis] Using Windows fonts.}%
+    \renewcommand\defaultSog{SimSun}%
+    \renewcommand\defaultHei{SimHei}%
+    \renewcommand\defaultKai{KaiTi}%
+    \renewcommand\defaultFag{FangSong}%
+    \renewcommand\defaultEngFont{Times New Roman}%
+    \renewcommand\defaultEngSansFont{\defaultHei}%
+    \renewcommand\codeFont{Consolas}%
+}
+\newcommand{\npu@select@linux@fonts}{%
+    % Linux: 优先使用常见的 Noto CJK，缺失则回退到 TeX Live 自带 Fandol
+    \IfFontExistsTF{Noto Serif CJK SC}{%
+        \IfFontExistsTF{Noto Sans CJK SC}{%
             \npu@set@noto@fonts
         }{%
             \npu@set@fandol@fonts
         }%
-    \fi
-    \ifmacosx
-        % macOS: 检测系统字体，没有则 fallback 到 fandol
-        \IfFontExistsTF{STSongti-SC-Regular}{%
-            \npu@set@mac@fonts
+    }{%
+        \npu@set@fandol@fonts
+    }%
+}
+\newcommand{\npu@select@mac@fonts}{%
+    % macOS: 系统中文字体不全时回退到 Fandol，避免触发缺字错误
+    \IfFontExistsTF{STSongti-SC-Regular}{%
+        \IfFontExistsTF{STHeiti}{%
+            \IfFontExistsTF{STKaiti}{%
+                \IfFontExistsTF{STFangSong}{%
+                    \IfFontExistsTF{Menlo}{%
+                        \npu@set@mac@fonts
+                    }{%
+                        \npu@set@fandol@fonts
+                    }%
+                }{%
+                    \npu@set@fandol@fonts
+                }%
+            }{%
+                \npu@set@fandol@fonts
+            }%
         }{%
             \npu@set@fandol@fonts
         }%
-    \fi
-    \ifwindows
-        % Windows CI 可能缺少中文字体，统一回退到 TeX Live 自带 Fandol
+    }{%
         \npu@set@fandol@fonts
-    \fi
+    }%
+}
+\newcommand{\npu@select@windows@fonts}{%
+    % Windows: 字体不齐全时也回退到 Fandol，保证 CI 可构建
+    \IfFontExistsTF{Times New Roman}{%
+        \IfFontExistsTF{SimSun}{%
+            \IfFontExistsTF{SimHei}{%
+                \IfFontExistsTF{KaiTi}{%
+                    \IfFontExistsTF{FangSong}{%
+                        \IfFontExistsTF{Consolas}{%
+                            \npu@set@windows@fonts
+                        }{%
+                            \npu@set@fandol@fonts
+                        }%
+                    }{%
+                        \npu@set@fandol@fonts
+                    }%
+                }{%
+                    \npu@set@fandol@fonts
+                }%
+            }{%
+                \npu@set@fandol@fonts
+            }%
+        }{%
+            \npu@set@fandol@fonts
+        }%
+    }{%
+        \npu@set@fandol@fonts
+    }%
+}
+\newcommand{\npu@select@auto@fonts}{%
+    \ifwindows
+        \npu@select@windows@fonts
+    \else\ifmacosx
+        \npu@select@mac@fonts
+    \else
+        \npu@select@linux@fonts
+    \fi\fi
 }
 \if@npu@font@local                                          % 使用本地 fonts 目录字体
     \npu@set@local@fonts
 \else\if@npu@font@fandol                                          % 强制使用 Fandol 字体选项
     \npu@set@fandol@fonts
-\else\if@npu@font@winfonts\relax                             % 强制使用 Win 字体选项
+\else\if@npu@font@winfonts                                   % 强制使用 Win 字体选项
+    \npu@select@windows@fonts
+\else
+    \if@npu@font@adobe                                        % Adobe 字体选项
+        \renewcommand\defaultSog{Adobe Song Std}
+        \renewcommand\defaultHei{Adobe Heiti Std}
+        \renewcommand\defaultKai{Adobe Kaiti Std}
+        \renewcommand\defaultFag{Adobe Fangsong Std}
     \else
-        \if@npu@font@adobe                                      % Adobe 字体选项
-            \renewcommand\defaultSog{Adobe Song Std}
-            \renewcommand\defaultHei{Adobe Heiti Std}
-            \renewcommand\defaultKai{Adobe Kaiti Std}
-            \renewcommand\defaultFag{Adobe Fangsong Std}
-        \else
-            % 检测所有 Windows 字体是否可用；不齐则按平台回退到更稳妥的字体集
-            \IfFontExistsTF{Times New Roman}{%
-                \IfFontExistsTF{SimSun}{%
-                    \IfFontExistsTF{SimHei}{%
-                        \IfFontExistsTF{KaiTi}{%
-                            \IfFontExistsTF{FangSong}{%
-                                \IfFontExistsTF{Consolas}{%
-                                    \typeout{[nwputhesis] Detected Windows fonts, using them.}
-                                }{%
-                                    \npu@fallback@fonts
-                                }%
-                            }{%
-                                \npu@fallback@fonts
-                            }%
-                        }{%
-                            \npu@fallback@fonts
-                        }%
-                    }{%
-                        \npu@fallback@fonts
-                    }%
-                }{%
-                    \npu@fallback@fonts
-                }%
-            }{%
-                \npu@fallback@fonts
-            }%
-        \fi
-    \fi\fi\fi
+        \npu@select@auto@fonts
+    \fi
+\fi\fi\fi
 \RequirePackage[SlantFont, BoldFont, CJKchecksingle]{xeCJK} % 设置中文字体
 \defaultfontfeatures{Mapping=tex-text}                      % 启用 TeX Ligatures
 % 根据 Fandol 字体标记决定加载方式
