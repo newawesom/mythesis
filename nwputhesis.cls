@@ -1247,12 +1247,12 @@
     \if@npu@type@bcl                                            % 本科论文摘要格式
         \renewcommand{\baselinestretch}{1.345}                  % 行距
         \fontsize{12pt}{14.4pt}\selectfont                      % 小四，1.2倍行距
-        \newcommand{\sep}{，}                                   % 本科：逗号
+        \newcommand{\sep}{\unskip，\ignorespaces}              % 本科：逗号
         \titleformat{\chapter}[hang]{\normalfont\sSanhao\fHei\filcenter}{\sSanhao}{1em}{\sSanhao}% 三号不加粗
         \chapter*{摘~~要}                                        %
         \markboth{中~文~摘~要}{中~文~摘~要}                     %
     \else                                                       % 硕博论文摘要格式
-        \newcommand{\sep}{\!；}                                 % 硕博：分号
+        \newcommand{\sep}{\unskip\!；\ignorespaces}            % 硕博：分号
         \graduatebodyfont                                       %
         \chapter[摘{\quad}要]{摘{\quad}要}                      %
         \markboth{摘{\quad}要}{摘{\quad}要}                     %
@@ -1273,12 +1273,12 @@
     \if@npu@type@bcl                                        % 本科论文英文摘要格式
         \renewcommand{\baselinestretch}{1.2}                % 行距
         \fontsize{12pt}{14.4pt}\selectfont                  % 小四
-        \newcommand{\ensep}{, }                             % 本科：逗号+空格
+        \newcommand{\ensep}{\unskip, \ignorespaces}         % 本科：逗号+空格
         \titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter}{\sSanhao}{1em}{\sSanhao}% 三号不加粗
         \chapter*{ABSTRACT}                                 %
         \markboth{英~文~摘~要}{英~文~摘~要}                 %
     \else                                                   % 硕博论文英文摘要格式
-        \newcommand{\ensep}{\!; }                           % 硕博：分号+空格
+        \newcommand{\ensep}{\unskip\!; \ignorespaces}       % 硕博：分号+空格
         \graduatebodyfont                                   %
         \chapter[ABSTRACT]{\selectfont\rmfamily\fEng\textbf{Abstract}}%
         \markboth{Abstract}{ABSTRACT}                       %
