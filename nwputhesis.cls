@@ -1257,7 +1257,15 @@
         \chapter[摘{\quad}要]{摘{\quad}要}                      %
         \markboth{摘{\quad}要}{摘{\quad}要}                     %
     \fi                                                         %
-}{\vfill\sWuhao\noindent\nwpu@chs@funding\par\cleardoublepage}
+}{%
+    \vfill\sWuhao
+    \if@npu@type@bcl
+        \noindent
+    \else
+        \indent
+    \fi
+    \nwpu@chs@funding\par\cleardoublepage
+}
 \newenvironment{keywords}{                                  %
     \if@npu@type@bcl                                        % 本科关键词格式
         \vspace{1\baselineskip} \par\noindent{\fHei 关键词：}%
@@ -1301,7 +1309,13 @@
         \titleformat{\chapter}[hang]{\normalfont\sSanhao\filcenter\fHei}% 三号黑体不加粗
         {第\CJKnumber{\thechapter}章}{1em}{\sSanhao}%
     \fi                                                     %
-    \vfill\sWuhao\noindent\nwpu@eng@funding\par\cleardoublepage%
+    \vfill\sWuhao
+    \if@npu@type@bcl
+        \noindent
+    \else
+        \indent
+    \fi
+    \nwpu@eng@funding\par\cleardoublepage%
 }
 \newenvironment{engkeywords}{                               %
     \if@npu@type@bcl                                        % 本科英文关键词格式
