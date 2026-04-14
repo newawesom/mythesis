@@ -1266,6 +1266,19 @@
     \fi                                                     %
     \ignorespaces
 }{}                                                         %
+\ExplSyntaxOn
+\cs_new_protected:Npn \nwpu_keywords_print:nn #1#2
+  {
+    \clist_set:Nn \l_tmpa_clist { #2 }
+    \clist_use:Nn \l_tmpa_clist { #1 }
+  }
+\NewDocumentCommand{\keywordslist}{m}
+  {
+    \begin{keywords}
+      \nwpu_keywords_print:nn { \sep } { #1 }
+    \end{keywords}
+  }
+\ExplSyntaxOff
 %%-----------------------------------------------------------------------------%
 %% 英文摘要及关键词
 %%-----------------------------------------------------------------------------%
@@ -1298,6 +1311,14 @@
     \fi                                                     %
     \ignorespaces
 }{}                                                         %
+\ExplSyntaxOn
+\NewDocumentCommand{\engkeywordslist}{m}
+  {
+    \begin{engkeywords}
+      \nwpu_keywords_print:nn { \ensep } { #1 }
+    \end{engkeywords}
+  }
+\ExplSyntaxOff
 %%=============================================================================%
 %%=============================================================================%
 %% 目录页
